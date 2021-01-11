@@ -1,0 +1,260 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Teko;
+	/*font-family: 'Poppins', sans-serif;*/
+}
+
+body{
+	background: #747474;
+}
+
+::-webkit-scrollbar {
+	background: #ABABAB;
+	width: 10px;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0, 0.4); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #383838; 
+}
+
+
+nav{
+	background: #383838;
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+	height: 50px;
+	justify-content: space-between;
+}
+
+nav h3{
+	padding-left: 50px; 
+	color: #FFD600;
+	font-size: 30px;
+}
+
+nav ul li{
+	list-style: none;
+	color: white;
+	align-items: right;
+	padding-right: 50px;
+}
+
+nav ul li{
+	border: none;
+	background-color: transparent;
+	font-size: 25px;
+	color: white;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+nav ul li:hover{
+	color: #FFD600;
+}
+
+.bigpic{
+	position: absolute;
+	padding: 50px 0 0 80px;
+}
+
+.task{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 30px;
+	top: 600px;
+	width: 275px;
+}
+
+.task div{
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	height: 35px;
+}
+
+.task h5{
+	padding-top: 10px;
+}
+
+.task div img{
+	width: 26px;
+}
+
+.task span{
+	width: 275px;
+	height: 3px;
+	background-color: white;
+	border-radius: 3px;
+	transition: all 0.5s;
+}
+
+.method{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 330px;
+	top: 600px;
+	width: 275px;
+}
+
+.method div{
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	height: 35px;
+}
+
+.method h5{
+	padding-top: 10px;
+}
+
+.method div img{
+	width: 35px;
+	height: 30px;
+	padding-top: 5px;
+}
+
+.method span{
+	width: 275px;
+	height: 3px;
+	background-color: white;
+	border-radius: 3px;
+	transition: all 0.5s;
+}
+
+.ML-1{
+	display: none;
+}
+
+@media screen and (max-width: 768px){
+	.ML{
+		display: block;
+	}
+	.ML-1{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.bigpic{
+		width: 400px;
+		padding: 20px 0 0 30px;
+	}
+	.task{
+		right: 30px;
+		top: 550px;
+		width: 100px;
+	}
+	.task span{
+		width: 100px;
+	}
+	.method{
+		right: 150px;
+		top: 550px;
+		width: 100px;
+	}
+	.method span{
+		width: 100px;
+	}
+	.ML{
+		display: none;
+	}
+	.ML-1{
+		display: block;
+	}
+}
+
+.project{
+	position: absolute;
+	right: 100px;
+	top: 130px;
+	width: 500px;
+	height: 150px;
+	border-radius: 20px;
+	background: #414141;
+	display: flex;
+	justify-content: space-around;
+	overflow: hidden;
+}
+
+.project h4{
+	width: 250px;
+	margin: auto;
+	color: white;
+}
+
+.project span{
+	height: 100px;
+	width: 140px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	margin: auto;	
+	overflow: hidden;
+	border-radius: 15px;
+}
+
+.project span img{
+	width: 160px;
+	transform: translateY(-5px);
+}
+
+.project-2{
+	top: 300px;
+}
+
+.number{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 10px;
+	height: 150px;
+	justify-content: space-around;
+	top: 130px;
+	right: 80px;
+}
+
+.number li{
+	list-style: none;
+	margin: auto;
+}
+
+.active{
+	color: white;
+}
+
+.btn{
+	cursor: pointer;
+}
+
+.card{
+	position: absolute;
+	z-index: 2;
+	top: 60px;
+	right: 20px;
+	display: none;
+}
+
+.pop{
+	display: block;
+}
+
+
+.card span{
+	z-index: 3;
+	width: 100px;
+	height: 100px;
+	background-color: black;
+}
