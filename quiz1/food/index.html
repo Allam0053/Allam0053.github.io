@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/6c2fc69305.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>Food</title>
 
   <style>
     @font-face {
@@ -39,7 +39,14 @@
     }
     @media only screen and (max-width: 992px) {
       .small-gone{
-        display:none;
+        display:none!important;
+      }
+      a{
+        font-size: 10px;
+      }
+      .small-appear{
+        display:flex!important;
+        font-size: 16px;
       }
     }
   </style>
@@ -47,13 +54,22 @@
 <body>
   <link href="hometown/index.html" rel="import" />
   <div class="container-fluid p-2  text-sans-serif" style="min-height: 100vh; background: linear-gradient(345deg, rgba(103,9,121,1) 0%, rgba(83,14,117,1) 35%, rgba(75,16,121,1) 68%, rgba(69,17,124,1) 100%);">
-    <div class="container d-flex justify-content-center flex-column mt-4" style="height: 50px; backdrop-filter: blur(2px); background-color: rgba(255, 255, 255, 0.8); border-radius: 100px; box-shadow: 0 2px 5px 1px rgba(0,0,0,0.35);">
-      <div class="row p-2">
-        <div class="col-5 ps-4"><a href="../index.html">HOME</a></div>
-        <div class="col-2"><a href="../profile/index.html">PROFILE</a></div>
-        <div class="col-2"><a href="../hometown/index.html">HOMETOWN</a></div>
-        <div class="col-2"><a href="../tourist/index.html">TOURIST</a></div>
-        <div class="col-1"><a href="../food/index.html">FOOD</a></div>
+
+    <!-- nav -->
+    <div class="container d-flex justify-content-center flex-column mt-4 mb-4" style="height: 50px; backdrop-filter: blur(2px); background-color: rgba(255, 255, 255, 0.8); border-radius: 100px; box-shadow: 0 2px 5px 1px rgba(0,0,0,0.35);">
+      <div class="row p-2 small-gone">
+        <div class="col-lg-5 col-md-2 ps-4"><a href="../index.html">HOME</a></div>
+        <div class="col-lg-2 col-md-2"><a href="../profile/index.html">PROFILE</a></div>
+        <div class="col-lg-2 col-md-2"><a href="../hometown/index.html">HOMETOWN</a></div>
+        <div class="col-lg-2 col-md-2"><a href="../tourist/index.html">TOURIST</a></div>
+        <div class="col-lg-1 col-md-2 "><a href="index.html">FOOD</a></div>
+      </div>
+      <div class="row flex-row small-appear" style="justify-content: space-around;">
+        <a class="col text-center" href="../index.html"><i class="fas fa-home fa-2x"></i></a>
+        <a class="col text-center" href="../profile/index.html"><i class="fas fa-user fa-2x""></i></a>
+        <a class="col text-center" href="../hometown/index.html"><i class="fas fa-house-user fa-2x""></i></a>
+        <a class="col text-center" href="../tourist/index.html"><i class="fas fa-plane-arrival fa-2x""></i></a>
+        <a class="col text-center" href="index.html"><i class="fas fa-utensils fa-2x""></i></a>
       </div>
     </div>
 
