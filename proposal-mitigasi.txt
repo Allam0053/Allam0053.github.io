@@ -1,0 +1,15 @@
+nama resiko
+1. server down
+2. bug on production
+
+prosentase kemungkunan terjadi
+1. 20%
+
+dampak (kecil, sedang, besar)
+1. besar
+
+strategi tanggapan
+1. melakukan deployment sistem pada beberapa server yang berbeda
+
+hal yang perlu dilakukan
+1. maintenance

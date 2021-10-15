@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/6c2fc69305.js" crossorigin="anonymous"></script>
+  <style>
+		.parallax-container {
+			position: absolute;
+			width: 100%;
+			height: 100vh;
+			padding: 100px;
+			left: 0;
+			top: 0;
+			z-index: -100;
+      background-color: #2D325A;
+		}
+		.parallax-container img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		
+    @font-face {
+      font-family: nunibold;
+      src: url(../font/Nunito-Bold.ttf);
+    }
+    @font-face {
+      font-family: nunilar;
+      src: url(../font/Nunito-Regular.ttf);
+    }
+
+		a {
+      font-family: nunilar;
+      text-decoration: none;
+      color: black;
+    }
+    a:hover{
+      color: rgba(75,16,121,1);
+    }
+    h1 h2 h3 h4 h5 h6 {
+      font-family: nunibold;
+    }
+    p {
+      font-family: nunilar;
+    }
+    .small-appear{
+        display:none!important;
+      }
+		@media only screen and (max-width: 992px) {
+      .small-gone{
+        display:none!important;
+      }
+      a{
+        font-size: 10px;
+      }
+      .small-appear{
+        display:flex!important;
+        font-size: 16px;
+      }
+    }
+	</style>
+</head>
+<body>
+  <!-- header -->
+	<div class="container-fluid pt-4"  style="height: 66.5vw; padding-bottom: 0px !important; margin-bottom: 0px !important;">
+
+		<!-- nav -->
+    <div class="container d-flex justify-content-center flex-column mt-4 mb-4" style="height: 50px; backdrop-filter: blur(2px); background-color: rgba(255, 255, 255, 0.8); border-radius: 100px; box-shadow: 0 2px 5px 1px rgba(0,0,0,0.35);">
+      <div class="row p-2 small-gone">
+        <div class="col-lg-5 col-md-2 ps-4"><a href="../index.html">HOME</a></div>
+        <div class="col-lg-2 col-md-2"><a href="../profile/index.html">PROFILE</a></div>
+        <div class="col-lg-2 col-md-2"><a href="../hometown/index.html">HOMETOWN</a></div>
+        <div class="col-lg-2 col-md-2"><a href="index.html">TOURIST</a></div>
+        <div class="col-lg-1 col-md-2 "><a href="../food/index.html">FOOD</a></div>
+      </div>
+      <div class="row flex-row small-appear" style="justify-content: space-around;">
+        <a class="col text-center" href="../index.html"><i class="fas fa-home fa-2x"></i></a>
+        <a class="col text-center" href="../profile/index.html"><i class="fas fa-user fa-2x"></i></a>
+        <a class="col text-center" href="../hometown/index.html"><i class="fas fa-house-user fa-2x"></i></a>
+        <a class="col text-center" href="index.html"><i class="fas fa-plane-arrival fa-2x"></i></a>
+        <a class="col text-center" href="../food/index.html"><i class="fas fa-utensils fa-2x""></i></a>
+      </div>
+    </div>
+
+		<div class="container text-center header justify-content-center" style="padding-top: 30vh">
+			<h3 class="text-white">Blitar Tourist Destination</h3>
+			<p class="text-white">Blitar got a lot of tourist destinations such as Kelud Mountain, Teletubbies Hill, beach, monuments, and Bung Karno's grave</p>
+			<div style="display: flex; align-items: center; justify-content: center;">
+				<span class="line" style="margin-right: 5px;"></span>
+			</div>
+		</div>
+	</div>
+
+  <section class="parallax-container">
+		<img id="parallax-1" src="1.png" alt="">
+		<img id="parallax-2" src="2.png" alt="">
+		<img id="parallax-3" src="3.png" alt="">
+		<img id="parallax-4" src="4.png" alt="">
+		<img id="parallax-5" src="5.png" alt="">
+		<img id="parallax-6" src="6.png" alt="">
+	</section>
+
+  <div class="container-fluid" style="background: #26203A;" style="padding-top: 0px !important; margin-top: 0px !important;">
+    <div class="container">
+      <div class="row justify-content-center">
+
+				<div class="col-4">
+					<img src="tourist-1.png" alt="" class="col-12">
+					<i class="fas fa-umbrella-beach" style="color: #E0E0E0;"></i>
+					<h5 style="color: #E0E0E0;">Gondo Mayit Beach</h5>
+					<p style="color: #E0E0E0;">
+						Gondo Mayit Beach in Blitar is a relatively new beach. Gondo Mayit itself means gondo is smell and corpse is corpse. So when combined, the name of this beach is the smell of corpses. But it's just name, there will be no smell of corpses while visitors are on this beach.
+						Although sometimes used as a place to meditate, this beach has a beautiful view. This view is what attracts visitors to this beach. To get to this beach, you can use a car or walk from Tambak Rejo Beach. Tambak Rejo Beach is also a beautiful beach, but I don't recommend to visit it in the afternoon. It will be so hot.
+					</p>
+				</div>
+
+				<div class="col-4">
+					<img src="tourist-2.png" alt="" class="col-12">
+					<i class="fas fa-mountain" style="color: #E0E0E0;"></i>
+					<h5 style="color: #E0E0E0;">Kelud</h5>
+					<p style="color: #E0E0E0;">
+						Kelud Mountain is an active volcano. There are many tremendous views in it. It is also a nice hiking destination. The hiking track is less dangerous.
+						This mountain can be accessed in a regular way. We can ride our vehicle to some spot, but it will still acquire us to walk a few more to reach the top. To get to the highest top, we need to go through the hiking track.
+						Kelud got some controversial history. It was contested by Blitar and Kediri.
+					</p>
+				</div>
+
+				<div class="col-4">
+					<img src="tourist-3.png" alt="" class="col-12">
+					<i class="fas fa-mountain" style="color: #E0E0E0;"></i>
+					<h5 style="color: #E0E0E0;">Teletubbies Hill</h5>
+					<p style="color: #E0E0E0;">
+						Teletubbies Hill is a fascinating place. Its' scenery is beautiful. It's not too far from my home and it's easy to get there. There would be more joy if visiting it in the evening.
+					</p>
+				</div>
+
+      </div>
+			<div class="row justify-content-center">
+				<p>
+
+				</p>
+			</div>
+    </div>
+  </div>
+
+  <script>
+		let parallax_1 = document.getElementById('parallax-1');
+		let parallax_2 = document.getElementById('parallax-2');
+		let parallax_3 = document.getElementById('parallax-3');
+		let parallax_4 = document.getElementById('parallax-4');
+		let parallax_5 = document.getElementById('parallax-5');
+		let parallax_6 = document.getElementById('parallax-6');
+
+		window.addEventListener('scroll', function() {
+			let value = window.scrollY;
+			parallax_1.style.top = value * 0.21 + 'px';
+			parallax_2.style.top = value * 0.20 + 'px';
+			parallax_3.style.top = value * 0.19 + 'px';
+			parallax_4.style.top = value * 0.12 + 'px';
+			parallax_5.style.top = value * 0.07 + 'px';
+			parallax_6.style.top = value * 0.30 + 'px';
+			// parallax_7.style.top = value * 0.1 + 'px';
+		});
+	</script>
+</body>
+</html>
