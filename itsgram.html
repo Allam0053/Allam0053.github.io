@@ -78,14 +78,16 @@
         </div>
       </div> -->
       <div class="pt-4 row">
-        <div class="col-md-6 ml-auto mr-auto text-justify justify-content-center" style="text-align: justify;">
-          <p style="text-align: justify;">
+        <div class="col-md-8 ml-auto mr-auto text-justify justify-content-center" style="text-align: justify; font-weight: 400;">
+          <p style="text-align: justify; font-weight: 400;">
             I built it using laravel framework as backend and created API for the mobile app. It has some feature like a social media. The mobile app has sentiment classification model, so it can be used to classify any text data such as caption, chat, and comment. I didn't build it using any frontend framework web yet. I am looking forward to it. Maybe in next couple week I will start to build the frontend for the web.
             <br>
             <br>
             I built some laravel projects, and I thought this one is my current skill reflection of building laravel projects. So I am gonna talk about what this project about, the libraries, the UI, and so on.
             <br>
-            <h5><strong>Init</strong></h5>
+          </p>
+          <h5><strong>Init</strong></h5>
+          <p style="text-align: justify; font-weight: 400;">
             Basically, this project started from a assignment to enter an internship. The requirements is not complicated, but if you wanna be a perfectionist, maybe this assignment will take forever to build.
             So here is the task
             <img class="col" src="./src/soal-instapp.png" alt="" style="box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);">
@@ -97,7 +99,9 @@
             <br><br>
             TODO: ADD PICS FOR MIGRATION
             <br><br>
-            <h5><strong>Create Project</strong></h5>
+          </p>
+          <h5><strong>Create Project</strong></h5>
+          <p style="text-align: justify; font-weight: 400;">
             <br>
             We have the database, let's jump to the coding part. first, init a laravel project.
             <br><br>
@@ -118,9 +122,52 @@
                 php artisan migrate
               </code>
             </div>
+            As for the project is initialized, we can create the migrations and the models according to the PDM. And don't forget to add some column such 'content' column that hold the text of comment or caption or chat.
+            <br>
+            TODO: add the migrations link and models link
+            <br>
+            Migrate it.
+            <br><br>
           </p>
+          <h5><strong>POST</strong></h5>
+          <p style="text-align: justify; font-weight: 400;">
+            <br>
+            For the POST use case, we can create CRUD feature and add the authentication for the create, update, and delete. First, let's create the routes.
+            <br><br>
+            <div class="p-2 bg-dark">
+              <code style="font-size: 8px;">
+                Route::group(['prefix' => '', 'middleware' => 'user'], function () { <br>
+                  &emsp;&emsp;// posting <br>
+                  &emsp;&emsp;Route::get('/post/new', [PostCreate::class, 'create'])->name('post.create.get'); <br>
+                  &emsp;&emsp;Route::post('/post/new', [PostCreate::class, 'store'])->name('post.create.post'); <br>
+                  &emsp;&emsp;Route::get('/post/my', [PostView::class, 'viewMy'])->name('post.view.my'); <br>
+                  &emsp;&emsp;Route::get('/post/{id}', [PostView::class, 'view'])->name('post.view'); <br>
+                  &emsp;&emsp;Route::get('/post/edit/{id}', [PostUpdate::class, 'edit'])->name('post.edit'); <br>
+                  &emsp;&emsp;Route::put('/post/edit/{id}', [PostUpdate::class, 'update'])->name('post.update'); <br>
+                  &emsp;&emsp;Route::get('/post/delete/{id}', [PostDelete::class, 'deletePost'])->name('post.delete'); <br>
+                }
+              </code>
+            </div>
+            <br>
+            The controllers will be seperated to 4 controllers, create, read, update, and delete. So let's create the CreateController. <br>
+            - We gonna need a function 'create' to redirect us to the page that contain a form for posting a pic. <br>
+            - We will handle the request with POST method with a function named 'store'. <br>
+            - For a better file naming, we need function 'saveFoto' to change the file name but keep the file extension. <br>
+            <br>
+            <a href="https://github.com/Allam0053/InstApp/blob/main/app/Http/Controllers/Post/CreateController.php">CODE</a>
+            <img class="col" src="./src/post-create-controller.png" alt="post create controller">
+          </p>
+          <br>
+          Now head for the update controller. It has a similiar code with the create controller, just need to add some code to delete the old file. <br>
+          <a href="https://github.com/Allam0053/InstApp/blob/main/app/Http/Controllers/Post/UpdateController.php">CODE</a>
+          <img class="col" src="./src/post-update-controller.png" alt="post update controller">
+          <br>
+          After that, let's create the delete controller. before deleting a post, we have to make sure that the user, who is trying to delete the post, is the owner. The code will look like this. But for the deleteData function, I placed it in App\Http\Controllers\Controller.php because it will useful for another deletion.
+          <br>
+          <a href="https://github.com/Allam0053/InstApp/blob/main/app/Http/Controllers/Post/DeleteController.php">CODE</a>
+          <img class="col" src="./src/post-delete-controller.png" alt="post delete controller">
           <br />
-          <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
+          <!-- <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn> -->
         </div>
       </div>
       <br/>
