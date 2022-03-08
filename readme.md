@@ -1,3 +1,5 @@
+# profile web using NEXT
+
 instapp (mobile + web)
 survey
 
@@ -7,7 +9,6 @@ northwind
 
 si bantank
 penembak
-
 
 instapp
 laravel
@@ -20,7 +21,6 @@ laravel
 MySQL
 Java Spring boot
 As one of the college assignment, me and my group created a simple survey web app using laravel. The main feature is the survey page and admin authentication. It has few routing, so it is not a complicated app. After created a monolithic app, we refactor it using some architecture. My part is to refactor dashboard use case to be a Factory Pattern.
-
 
 crowns
 laravel
