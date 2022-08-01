@@ -172,6 +172,6 @@ const favicons: Array<Favicons> = [
   },
   {
     rel: 'manifest',
-    href: '/favicon/manifest.json',
+    href: '/manifest.json',
   },
 ];

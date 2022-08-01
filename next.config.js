@@ -8,6 +8,13 @@ module.exports = withPWA({
     dirs: ['src'],
   },
 
+  pwa: {
+    dest: 'public',
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === 'development',
+  },
+
   reactStrictMode: true,
 
   // Uncoment to add domain whitelist
@@ -16,13 +23,6 @@ module.exports = withPWA({
   //     'res.cloudinary.com',
   //   ],
   // },
-
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    disable: false,
-  },
 
   // SVGR
   webpack(config) {
