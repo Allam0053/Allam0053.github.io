@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function FooterSmall(props) {
+type FooterSmallProps = {
+  absolute?: boolean;
+} & React.ComponentPropsWithoutRef<'div'>;
+
+export default function FooterSmall(props: FooterSmallProps) {
   return (
     <>
       <footer
