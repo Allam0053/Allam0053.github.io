@@ -12,11 +12,8 @@ export default function Navbar() {
         <div className='container mx-auto flex flex-wrap items-center justify-between px-4'>
           <div className='relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start'>
             <Link href='/'>
-              <a
-                className='mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-slate-700'
-                href='#pablo'
-              >
-                Notus NextJS
+              <a className='mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-slate-700'>
+                ATS
               </a>
             </Link>
             <button
@@ -83,15 +80,6 @@ export default function Navbar() {
                   <i className='fab fa-github leading-lg text-lg text-slate-400 ' />
                   <span className='ml-2 inline-block lg:hidden'>Star</span>
                 </a>
-              </li>
-
-              <li className='flex items-center'>
-                <button
-                  className='ml-3 mb-3 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-slate-600 lg:mr-1 lg:mb-0'
-                  type='button'
-                >
-                  <i className='fas fa-arrow-alt-circle-down'></i> Download
-                </button>
               </li>
             </ul>
           </div>

@@ -30,7 +30,7 @@ const IndexDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Demo Pages
+        Pages
       </a>
       <div
         ref={popoverDropdownRef}
@@ -40,50 +40,42 @@ const IndexDropdown = () => {
         }
       >
         <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>
-          Admin Layout
+          Content
         </span>
-        <Link href='/admin/dashboard'>
+        <Link href='/projects'>
           <a
             href='#pablo'
             className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
           >
-            Dashboard
+            Projects
           </a>
         </Link>
-        <Link href='/admin/settings'>
+        <Link href='/blogs'>
           <a
             href='#pablo'
             className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
           >
-            Settings
+            Blogs
           </a>
         </Link>
-        <Link href='/admin/tables'>
+        <Link href='/libraries'>
           <a
             href='#pablo'
             className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
           >
-            Tables
-          </a>
-        </Link>
-        <Link href='/admin/maps'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Maps
+            Libraries
           </a>
         </Link>
         <div className='mx-4 my-2 h-0 border border-solid border-slate-100' />
         <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>
-          Auth Layout
+          About
         </span>
         <Link href='/auth/login'>
           <a
             href='#pablo'
             className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
           >
-            Login
+            This Project
           </a>
         </Link>
         <Link href='/auth/register'>
@@ -91,27 +83,7 @@ const IndexDropdown = () => {
             href='#pablo'
             className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
           >
-            Register
-          </a>
-        </Link>
-        <div className='mx-4 my-2 h-0 border border-solid border-slate-100' />
-        <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>
-          No Layout
-        </span>
-        <Link href='/landing'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Landing
-          </a>
-        </Link>
-        <Link href='/profile'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Profile
+            Allam
           </a>
         </Link>
       </div>

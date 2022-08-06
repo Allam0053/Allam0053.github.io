@@ -1,20 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
-import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import Seo from '@/components/Seo';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-import Vercel from '~/svg/Vercel.svg';
+import Footer from '@/components/Footers/Footer';
+import Layout from '@/components/layout/Layout';
+import IndexNavbar from '@/components/Navbars/IndexNavbar';
+import Seo from '@/components/Seo';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -26,49 +18,46 @@ export default function HomePage() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
+      <IndexNavbar />
+
       <main>
-        <section className='bg-white'>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
-            <Vercel className='text-5xl' />
-            <h1 className='mt-4'>
-              Next.js + Tailwind CSS + TypeScript Starter
-            </h1>
-            <p className='mt-2 text-sm text-gray-800'>
-              A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-              Import, Seo, Link component, pre-configured with Husky{' '}
-            </p>
-            <p className='mt-2 text-sm text-gray-700'>
-              <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-                See the repository
-              </ArrowLink>
-            </p>
-
-            <ButtonLink className='mt-6' href='/components' variant='light'>
-              See all components
-            </ButtonLink>
-
-            <UnstyledLink
-              href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-              className='mt-4'
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                width='92'
-                height='32'
-                src='https://vercel.com/button'
-                alt='Deploy with Vercel'
-              />
-            </UnstyledLink>
-
-            <footer className='absolute bottom-2 text-gray-700'>
-              © {new Date().getFullYear()} By{' '}
-              <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
-              </UnderlineLink>
-            </footer>
+        <section className='header relative flex h-screen max-h-860-px items-center pt-16'>
+          <div className='container mx-auto flex flex-wrap items-center'>
+            <div className='w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12'>
+              <div className='pt-32 sm:pt-0'>
+                <h2 className='text-4xl font-semibold text-blueGray-600'>
+                  {`I'm Allam.`}
+                </h2>
+                <p className='mt-4 text-lg leading-relaxed text-blueGray-500'>
+                  This is my personal website. Imma a dev at heart. I write some
+                  for it. Take a look, you may find something interesting.
+                </p>
+                <div className='mt-12'>
+                  {/* <a
+                    href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus?ref=nnjs-index'
+                    className='get-started mr-1 mb-1 rounded bg-blueGray-400 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-blueGray-500'
+                  >
+                    Get started
+                  </a> */}
+                  <a
+                    href='https://github.com/creativetimofficial/notus-nextjs?ref=nnjs-index'
+                    className='github-star ml-1 mr-1 mb-1 rounded bg-blueGray-700 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none hover:shadow-lg focus:outline-none active:bg-blueGray-600'
+                  >
+                    Github Star
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+          <img
+            className='b-auto absolute top-0 right-0 -mt-48 max-h-860-px w-10/12 pt-16 sm:mt-0 sm:w-6/12'
+            src='/images/ill_header_3.png'
+            alt='...'
+          />
         </section>
       </main>
+
+      <Footer />
     </Layout>
   );
 }
