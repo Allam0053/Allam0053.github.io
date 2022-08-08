@@ -3,8 +3,12 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import * as React from 'react';
 
 import { getFileBySlug, getFiles } from '@/lib/mdx';
+import useScrollSpy from '@/hooks/useScrollspy';
 
 import MDXComponents from '@/components/content/MDXComponents';
+import TableOfContents, {
+  HeadingScrollSpy,
+} from '@/components/content/TableOfContents';
 import Footer from '@/components/Footers/Footer';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Navbar from '@/components/Navbars/AuthNavbar';
@@ -21,7 +25,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
   //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
-  /*
+
   const activeSection = useScrollSpy();
 
   const [toc, setToc] = React.useState<HeadingScrollSpy>();
@@ -42,7 +46,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
 
     setToc(headingArr);
   }, [frontmatter.slug]);
-  */
+
   //#endregion  //*======== Scrollspy ===========
 
   return (
@@ -111,12 +115,20 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                   </div>
                   <div className='mb-2 text-slate-600'>
                     <i className='fas fa-university mr-2 text-lg text-slate-400'></i>
-                    Institut Teknologi Sepuluh Nopember
+                    Mobile Programming
                   </div>
                 </div>
                 <div className='mt-10 border-t border-slate-200 py-10 text-left'>
                   <div className='flex flex-wrap justify-center'>
-                    <div className='w-full px-4 lg:w-9/12'>
+                    <div className='w-full px-4 lg:w-3/12'>
+                      <TableOfContents
+                        toc={toc}
+                        minLevel={minLevel}
+                        activeSection={activeSection}
+                      />
+                    </div>
+
+                    <div className='mdx w-full px-4 lg:w-9/12'>
                       <Component
                         components={
                           {
@@ -129,6 +141,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       {/* <p className='mb-4 text-lg leading-relaxed text-slate-700'>
                         {`Hello, I'm Allam. I'm a student of Informatics Engineering at ITS. I have so much interest in tech and I really like building apps. Currently, I have been creating web apps and mobile apps. I have been programming in PHP for about a year. I really enjoy learning many things such as routing, handling data, and many more in laravel. Now I am interested in javascript. I think this language is greatly popular so I had to learn it. It is a beautiful language with high versatility I think. The syntax is quite tricky and that's what makes it fascinating.`}
                       </p> */}
+                      <br />
                       <p className='text-sm font-semibold text-slate-400'>
                         Edited in 2021
                       </p>

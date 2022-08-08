@@ -1,0 +1,8 @@
+.mdx.prose :where(h1, h2, h3, h4) {
+  scroll-margin-top: 100px;
+  position: relative;
+  display: block;
+  margin-right: 0.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
