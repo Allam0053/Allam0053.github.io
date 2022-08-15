@@ -1,3 +1,4 @@
+import { buildUrl } from 'cloudinary-build-url';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import * as React from 'react';
@@ -25,7 +26,6 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
   //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
-
   const activeSection = useScrollSpy();
 
   const [toc, setToc] = React.useState<HeadingScrollSpy>();
@@ -46,8 +46,18 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
 
     setToc(headingArr);
   }, [frontmatter.slug]);
-
   //#endregion  //*======== Scrollspy ===========
+
+  //#region ============ Banner ===========
+  const url = buildUrl(frontmatter.banner, {
+    cloud: {
+      cloudName: 'allam-taju',
+    },
+    transformations: {
+      rawTransformation: `c_fill,ar_1920:420,w_1920`,
+    },
+  });
+  //#endregion ============ Banner ===========
 
   return (
     <>
@@ -62,8 +72,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
           <div
             className='absolute top-0 h-full w-full bg-cover bg-center'
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
+              backgroundImage: `url('${url}')`,
             }}
           >
             <span
@@ -95,6 +104,31 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
           <div className='container mx-auto px-4'>
             <div className='relative mb-6 -mt-64 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-xl'>
               <div className='px-6'>
+                <div className='justify-left flex flex-wrap'>
+                  <div className='w-full px-4 lg:order-1 lg:w-4/12'>
+                    <div className='flex justify-center py-4 pt-8 lg:pt-4'>
+                      <div className='mr-4 p-3 text-center'>
+                        <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
+                          22
+                        </span>
+                        <span className='text-sm text-slate-400'>Friends</span>
+                      </div>
+                      <div className='mr-4 p-3 text-center'>
+                        <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
+                          10
+                        </span>
+                        <span className='text-sm text-slate-400'>Photos</span>
+                      </div>
+                      <div className='p-3 text-center lg:mr-4'>
+                        <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
+                          89
+                        </span>
+                        <span className='text-sm text-slate-400'>Comments</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className='mt-12 text-center'>
                   <h3 className='mb-2 text-4xl font-semibold leading-normal text-slate-700'>
                     {frontmatter.title}
@@ -128,7 +162,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       />
                     </div>
 
-                    <div className='mdx w-full px-4 lg:w-9/12'>
+                    <div className='mdx prose w-full px-4 lg:w-9/12'>
                       <Component
                         components={
                           {

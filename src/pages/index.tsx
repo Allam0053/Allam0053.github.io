@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import Badge from '@/components/content/Badge';
 import Footer from '@/components/Footers/Footer';
 import Layout from '@/components/layout/Layout';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
@@ -19,29 +18,32 @@ export default function HomePage() {
       <Seo />
 
       <IndexNavbar />
+      <div className='fixed bottom-0 right-0 z-[100] m-4 rounded-lg bg-yellow-500 p-2 text-sm font-semibold text-slate-100 shadow-md'>
+        this page currently on development
+      </div>
 
       <main>
         <section className='header relative flex h-screen max-h-860-px items-center pt-16'>
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12'>
               <div className='pt-32 sm:pt-0'>
-                <h2 className='text-4xl font-semibold text-blueGray-600'>
+                <h2 className='text-4xl font-semibold text-slate-600'>
                   {`I'm Allam.`}
                 </h2>
-                <p className='mt-4 text-lg leading-relaxed text-blueGray-500'>
+                <p className='mt-4 text-lg leading-relaxed text-slate-500'>
                   This is my personal website. Imma a dev at heart. I write some
                   for it. Take a look, you may find something interesting.
                 </p>
                 <div className='mt-12'>
                   {/* <a
                     href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus?ref=nnjs-index'
-                    className='get-started mr-1 mb-1 rounded bg-blueGray-400 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-blueGray-500'
+                    className='get-started mr-1 mb-1 rounded bg-slate-400 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-slate-500'
                   >
                     Get started
                   </a> */}
                   <a
                     href='https://github.com/creativetimofficial/notus-nextjs?ref=nnjs-index'
-                    className='github-star ml-1 mr-1 mb-1 rounded bg-blueGray-700 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none hover:shadow-lg focus:outline-none active:bg-blueGray-600'
+                    className='github-star ml-1 mr-1 mb-1 rounded bg-slate-700 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none hover:shadow-lg focus:outline-none active:bg-slate-600'
                   >
                     Github Star
                   </a>
@@ -54,6 +56,126 @@ export default function HomePage() {
             src='/images/ill_header_3.png'
             alt='...'
           />
+        </section>
+
+        <section className='relative mt-48 bg-slate-100 pb-40 md:mt-40'>
+          <div className='container mx-auto overflow-hidden pb-20'>
+            <div className='flex flex-wrap items-center pt-32'>
+              <div className='mr-auto ml-auto mt-32 w-full px-4 md:w-6/12'>
+                <div className='relative flex flex-wrap justify-center'>
+                  <div className='my-4 w-full px-4 lg:w-6/12'>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vtw-index'>
+                      <div className='rounded-lg bg-red-600 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/svelte.jpg'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          Svelte
+                        </p>
+                      </div>
+                    </a>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index'>
+                      <div className='mt-8 rounded-lg bg-sky-500 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react.jpg'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          ReactJS
+                        </p>
+                      </div>
+                    </a>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index'>
+                      <div className='mt-8 rounded-lg bg-slate-700 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/nextjs.jpg'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          NextJS
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div className='my-4 w-full px-4 lg:mt-16 lg:w-6/12'>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vtw-index'>
+                      <div className='rounded-lg bg-yellow-500 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          JavaScript
+                        </p>
+                      </div>
+                    </a>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index'>
+                      <div className='mt-8 rounded-lg bg-red-700 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular.jpg'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          Angular
+                        </p>
+                      </div>
+                    </a>
+                    <a href='https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vtw-index'>
+                      <div className='mt-8 rounded-lg bg-emerald-500 p-8 text-center shadow-lg'>
+                        <img
+                          alt='...'
+                          className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue.jpg'
+                        />
+                        <p className='mt-4 text-lg font-semibold text-white'>
+                          Vue.js
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className='ml-auto mr-auto mt-48 w-full px-12 md:w-4/12 md:px-4'>
+                <div className='mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center text-slate-500 shadow-lg'>
+                  <i className='fas fa-drafting-compass text-xl'></i>
+                </div>
+                <h3 className='mb-2 text-3xl font-semibold leading-normal'>
+                  Projects
+                </h3>
+                <p className='mt-4 mb-4 text-lg font-light leading-relaxed text-slate-600'>
+                  In order to gain more experience in developing, I always look
+                  for opportunity to join a project or to work on a project
+                  together.
+                </p>
+                <p className='mt-4 mb-4 text-lg font-light leading-relaxed text-slate-600'>
+                  I&apos;m always looking for new ideas to gain new knowledge.
+                  Knowledge is power 💪
+                </p>
+                <div className='block pb-6'>
+                  <Badge>Reactjs</Badge>
+                  <Badge>Nextjs</Badge>
+                  <Badge>Laravel</Badge>
+                  <Badge>Kotlin</Badge>
+                  <Badge>Frontend</Badge>
+                  <Badge>Backend</Badge>
+                </div>
+                <a
+                  href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=nnjs-index'
+                  className='font-bold text-slate-700 transition-all duration-150 ease-linear hover:text-slate-500'
+                >
+                  View all{' '}
+                  <i className='fa fa-angle-double-right ml-1 leading-relaxed'></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 

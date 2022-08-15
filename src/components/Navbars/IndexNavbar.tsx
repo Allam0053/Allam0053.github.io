@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 
+import ThemeButton from '@/components/buttons/ThemeButton';
 import IndexDropdown from '@/components/Dropdowns/IndexDropdown';
 
 export default function Navbar() {
@@ -80,6 +81,10 @@ export default function Navbar() {
                   <i className='fab fa-github leading-lg text-lg text-slate-400 ' />
                   <span className='ml-2 inline-block lg:hidden'>Star</span>
                 </a>
+              </li>
+
+              <li className='flex items-center'>
+                <ThemeButton />
               </li>
             </ul>
           </div>

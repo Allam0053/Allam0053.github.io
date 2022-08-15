@@ -3,7 +3,7 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 export default function SingleSection() {
   return (
-    <section className='z-1 relative block bg-blueGray-600'>
+    <section className='z-1 relative block bg-slate-600'>
       <div className='container mx-auto'>
         <div className='flex flex-wrap justify-center'>
           <div className='lg:w-12/12 -mt-24 w-full  px-4'>
