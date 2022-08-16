@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { IoLogoVercel } from 'react-icons/io5';
 import {
+  SiBootstrap,
   SiFirebase,
   SiGit,
   SiGoogleanalytics,
@@ -41,7 +42,7 @@ export default function TechIcons({ className, techs }: TechIconsProps) {
 
         return (
           <Tooltip key={current.name} content={<p>{current.name}</p>}>
-            <li className='text-xl text-gray-700 dark:text-gray-200'>
+            <li className='text-xl text-slate-700'>
               <current.icon />
             </li>
           </Tooltip>
@@ -131,5 +132,9 @@ const techList = {
   tensorflow: {
     icon: SiTensorflow,
     name: 'Tensorflow',
+  },
+  bootstrap: {
+    icon: SiBootstrap,
+    name: 'Bootstrap',
   },
 };

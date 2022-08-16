@@ -2,14 +2,25 @@
 import Link from 'next/link';
 import React from 'react';
 
+import clsxm from '@/lib/clsxm';
+
 import ThemeButton from '@/components/buttons/ThemeButton';
 import IndexDropdown from '@/components/Dropdowns/IndexDropdown';
 
-export default function Navbar() {
+export type IndexNavbarProps = {
+  transparent?: boolean;
+};
+
+export default function Navbar({ transparent }: IndexNavbarProps) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className='navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between bg-white px-2 py-3 shadow'>
+      <nav
+        className={clsxm(
+          'navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3 shadow',
+          transparent ? 'bg-transparent' : 'bg-white'
+        )}
+      >
         <div className='container mx-auto flex flex-wrap items-center justify-between px-4'>
           <div className='relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start'>
             <Link href='/'>

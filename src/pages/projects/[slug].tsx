@@ -3,6 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import * as React from 'react';
 
+import clsxm from '@/lib/clsxm';
 import { getFileBySlug, getFiles } from '@/lib/mdx';
 import useScrollSpy from '@/hooks/useScrollspy';
 
@@ -12,13 +13,23 @@ import TableOfContents, {
 } from '@/components/content/TableOfContents';
 import Footer from '@/components/Footers/Footer';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import Navbar from '@/components/Navbars/AuthNavbar';
+import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import Seo from '@/components/Seo';
 
 import { ProjectType } from '@/types/frontmatters';
 
 export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
+
+  //#region  //*=========== show Clickable ===========
+  const [underline, setUnderline] = React.useState(false);
+  React.useEffect(() => {
+    setUnderline(true);
+    setTimeout(() => {
+      setUnderline(false);
+    }, 4000);
+  }, []);
+  //#endregion  //*======== show Clickable ===========
 
   //#region  //*=========== Content Meta ===========
   // const contentSlug = `p_${frontmatter.slug}`;
@@ -61,11 +72,12 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
 
   return (
     <>
-      <Navbar />
+      <IndexNavbar />
       <Seo
         templateTitle={frontmatter.title}
         description={frontmatter.description}
         date={new Date(frontmatter.publishedAt).toISOString()}
+        url={`https://allam-taju.vercel.app/projects/${frontmatter.slug}`}
       />
       <main className='profile-page'>
         <section className='relative block h-500-px'>
@@ -109,19 +121,19 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                     <div className='flex justify-center py-4 pt-8 lg:pt-4'>
                       <div className='mr-4 p-3 text-center'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          22
+                          -
                         </span>
-                        <span className='text-sm text-slate-400'>Friends</span>
+                        <span className='text-sm text-slate-400'>Likes</span>
                       </div>
                       <div className='mr-4 p-3 text-center'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          10
+                          -
                         </span>
-                        <span className='text-sm text-slate-400'>Photos</span>
+                        <span className='text-sm text-slate-400'>Shares</span>
                       </div>
                       <div className='p-3 text-center lg:mr-4'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          89
+                          -
                         </span>
                         <span className='text-sm text-slate-400'>Comments</span>
                       </div>
@@ -135,34 +147,39 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                   </h3>
                   <div className='mt-0 mb-2 text-sm font-bold uppercase leading-normal text-slate-400'>
                     <UnstyledLink
-                      href={`https://www.google.com/maps/dir//'-7.982745,112.133692'/`}
+                      href={`${frontmatter.link}`}
                       openNewTab={true}
-                      className='text-slate-400 hover:text-slate-500'
+                      className={clsxm(
+                        'text-slate-400 hover:text-slate-500',
+                        underline ? 'underline' : ''
+                      )}
                     >
-                      <i className='fas fa-map-marker-alt mr-2 text-lg'></i>{' '}
-                      Blitar, East Java
+                      <i className='fas fa-globe mr-2 text-lg'></i>{' '}
+                      {frontmatter.link}
                     </UnstyledLink>
                   </div>
-                  <div className='mb-2 mt-10 text-slate-600'>
+                  {/* <div className='mb-2 mt-10 text-slate-600'>
                     <i className='fas fa-briefcase mr-2 text-lg text-slate-400'></i>
                     Student - Informatics Engineering (2019 - current)
                   </div>
                   <div className='mb-2 text-slate-600'>
                     <i className='fas fa-university mr-2 text-lg text-slate-400'></i>
                     Mobile Programming
-                  </div>
+                  </div> */}
                 </div>
                 <div className='mt-10 border-t border-slate-200 py-10 text-left'>
-                  <div className='flex flex-wrap justify-center'>
-                    <div className='w-full px-4 lg:w-3/12'>
-                      <TableOfContents
-                        toc={toc}
-                        minLevel={minLevel}
-                        activeSection={activeSection}
-                      />
-                    </div>
+                  <div className='grid grid-cols-4 gap-1 lg:gap-4'>
+                    <aside className='relative w-full md:px-4'>
+                      <div className='sticky top-2'>
+                        <TableOfContents
+                          toc={toc}
+                          minLevel={minLevel}
+                          activeSection={activeSection}
+                        />
+                      </div>
+                    </aside>
 
-                    <div className='mdx prose w-full px-4 lg:w-9/12'>
+                    <article className='mdx prose col-span-3 px-4'>
                       <Component
                         components={
                           {
@@ -179,7 +196,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       <p className='text-sm font-semibold text-slate-400'>
                         Edited in 2021
                       </p>
-                    </div>
+                    </article>
                   </div>
                 </div>
               </div>

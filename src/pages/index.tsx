@@ -4,6 +4,7 @@ import * as React from 'react';
 import Badge from '@/components/content/Badge';
 import Footer from '@/components/Footers/Footer';
 import Layout from '@/components/layout/Layout';
+import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import Seo from '@/components/Seo';
 
@@ -15,7 +16,12 @@ export default function HomePage() {
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo
+        title='Home | Allam'
+        siteName='Allam Taju'
+        description='Personal website of Allam Taju'
+        url='https://allam-taju.vercel.app/'
+      />
 
       <IndexNavbar />
       <div className='fixed bottom-0 right-0 z-[100] m-4 rounded-lg bg-yellow-500 p-2 text-sm font-semibold text-slate-100 shadow-md'>
@@ -23,7 +29,7 @@ export default function HomePage() {
       </div>
 
       <main>
-        <section className='header relative flex h-screen max-h-860-px items-center pt-16'>
+        <section className='header relative flex h-screen max-h-860-px items-center pt-16 '>
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12'>
               <div className='pt-32 sm:pt-0'>
@@ -42,7 +48,7 @@ export default function HomePage() {
                     Get started
                   </a> */}
                   <a
-                    href='https://github.com/creativetimofficial/notus-nextjs?ref=nnjs-index'
+                    href='https://github.com/allam0053/allam0053.github.io'
                     className='github-star ml-1 mr-1 mb-1 rounded bg-slate-700 px-6 py-4 text-sm font-bold uppercase text-white shadow outline-none hover:shadow-lg focus:outline-none active:bg-slate-600'
                   >
                     Github Star
@@ -166,13 +172,14 @@ export default function HomePage() {
                   <Badge>Frontend</Badge>
                   <Badge>Backend</Badge>
                 </div>
-                <a
-                  href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=nnjs-index'
+                <UnstyledLink
+                  href='/projects'
+                  openNewTab={false}
                   className='font-bold text-slate-700 transition-all duration-150 ease-linear hover:text-slate-500'
                 >
                   View all{' '}
                   <i className='fa fa-angle-double-right ml-1 leading-relaxed'></i>
-                </a>
+                </UnstyledLink>
               </div>
             </div>
           </div>
