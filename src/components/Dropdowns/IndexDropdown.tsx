@@ -1,6 +1,7 @@
 import { createPopper } from '@popperjs/core';
-import Link from 'next/link';
 import React from 'react';
+
+import UnstyledLink from '@/components/links/UnstyledLink';
 
 const IndexDropdown = () => {
   // dropdown props
@@ -42,50 +43,40 @@ const IndexDropdown = () => {
         <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>
           Content
         </span>
-        <Link href='/projects'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Projects
-          </a>
-        </Link>
-        <Link href='/blogs'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Blogs
-          </a>
-        </Link>
-        <Link href='/libraries'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Libraries
-          </a>
-        </Link>
+        <UnstyledLink
+          href='/projects'
+          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+        >
+          Projects
+        </UnstyledLink>
+        <UnstyledLink
+          href='/blogs'
+          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+        >
+          Blogs
+        </UnstyledLink>
+        <UnstyledLink
+          href='/libraries'
+          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+        >
+          Libraries
+        </UnstyledLink>
         <div className='mx-4 my-2 h-0 border border-solid border-slate-100' />
         <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>
           About
         </span>
-        <Link href='/auth/login'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            This Project
-          </a>
-        </Link>
-        <Link href='/auth/register'>
-          <a
-            href='#pablo'
-            className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
-          >
-            Allam
-          </a>
-        </Link>
+        <UnstyledLink
+          href='/about/this-project'
+          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+        >
+          This Project
+        </UnstyledLink>
+        <UnstyledLink
+          href='/about/me'
+          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+        >
+          Allam
+        </UnstyledLink>
       </div>
     </>
   );

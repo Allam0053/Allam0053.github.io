@@ -53,6 +53,13 @@ export default function HomePage() {
                   >
                     Github Star
                   </a>
+                  <UnstyledLink
+                    href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
+                    openNewTab
+                    className='mx-2 border-0 border-slate-600 px-2 text-sm font-semibold text-slate-500 hover:border-b-2 hover:text-slate-600 active:border-b-2 active:text-slate-700'
+                  >
+                    <i className='fas fa-address-card'></i> My CV
+                  </UnstyledLink>
                 </div>
               </div>
             </div>

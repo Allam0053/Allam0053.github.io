@@ -24,15 +24,22 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
+import clsxm from '@/lib/clsxm';
+
 import Tooltip from '@/components/Tooltip';
 
 export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
   techs: Array<TechListType>;
+  iconColor?: string;
 } & React.ComponentPropsWithoutRef<'ul'>;
 
-export default function TechIcons({ className, techs }: TechIconsProps) {
+export default function TechIcons({
+  className,
+  techs,
+  iconColor,
+}: TechIconsProps) {
   return (
     <ul className={clsx(className, 'flex gap-2')}>
       {techs.map((tech) => {
@@ -42,7 +49,12 @@ export default function TechIcons({ className, techs }: TechIconsProps) {
 
         return (
           <Tooltip key={current.name} content={<p>{current.name}</p>}>
-            <li className='text-xl text-slate-700'>
+            <li
+              className={clsxm(
+                'text-xl',
+                iconColor ? iconColor : 'text-slate-700'
+              )}
+            >
               <current.icon />
             </li>
           </Tooltip>

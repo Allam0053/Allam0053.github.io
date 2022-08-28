@@ -47,7 +47,10 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           <h4 className='inline-block text-xl font-bold text-white'>
             {project.title}
           </h4>
-          <TechIcons techs={project.techs.split(',') as Array<TechListType>} />
+          <TechIcons
+            techs={project.techs.split(',') as Array<TechListType>}
+            iconColor='text-slate-100'
+          />
         </div>
         <p className='text-md mt-2 font-light text-white'>
           {project.description}
