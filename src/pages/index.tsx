@@ -17,7 +17,7 @@ export default function HomePage() {
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       <Seo
-        title='Home | Allam'
+        title='Home | Allam Taju Sarof'
         siteName='Allam Taju'
         description='Personal website of Allam Taju'
         url='https://allam-taju.vercel.app/'
@@ -34,7 +34,7 @@ export default function HomePage() {
             <div className='w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12'>
               <div className='pt-32 sm:pt-0'>
                 <h2 className='text-4xl font-semibold text-slate-600'>
-                  {`I'm Allam.`}
+                  {`Hello, I'm Allam Taju Sarof.`}
                 </h2>
                 <p className='mt-4 text-lg leading-relaxed text-slate-500'>
                   This is my personal website. Imma a dev at heart. I write some

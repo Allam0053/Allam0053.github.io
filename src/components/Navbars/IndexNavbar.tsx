@@ -1,5 +1,6 @@
 // components
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 import React from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -13,18 +14,23 @@ export type IndexNavbarProps = {
 
 export default function Navbar({ transparent }: IndexNavbarProps) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const { theme } = useTheme();
   return (
     <>
       <nav
         className={clsxm(
           'navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3 shadow',
-          transparent ? 'bg-transparent' : 'bg-white'
+          transparent
+            ? 'bg-transparent backdrop-blur-lg'
+            : theme === 'light'
+            ? 'bg-white'
+            : 'bg-slate-600'
         )}
       >
         <div className='container mx-auto flex flex-wrap items-center justify-between px-4'>
           <div className='relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start'>
             <Link href='/'>
-              <a className='mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-slate-700'>
+              <a className='mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-slate-700 dark:text-white'>
                 ATS
               </a>
             </Link>
@@ -37,19 +43,19 @@ export default function Navbar({ transparent }: IndexNavbarProps) {
             </button>
           </div>
           <div
-            className={
-              'flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none' +
-              (navbarOpen ? ' block' : ' hidden')
-            }
+            className={clsxm(
+              'flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none',
+              navbarOpen ? ' block' : ' hidden'
+            )}
             id='example-navbar-warning'
           >
             <ul className='mr-auto flex list-none flex-col lg:flex-row'>
               <li className='flex items-center'>
                 <a
-                  className='flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 hover:text-slate-500 lg:py-2'
+                  className='flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 hover:text-slate-500 dark:text-white lg:py-2'
                   href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus?ref=nnjs-index-navbar'
                 >
-                  <i className='far fa-file-alt leading-lg mr-2 text-lg text-slate-400' />{' '}
+                  <i className='far fa-file-alt leading-lg mr-2 text-lg text-slate-700 dark:text-white' />{' '}
                   Docs
                 </a>
               </li>
@@ -65,7 +71,7 @@ export default function Navbar({ transparent }: IndexNavbarProps) {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <i className='fab fa-facebook leading-lg text-lg text-slate-400 ' />
+                  <i className='fab fa-facebook leading-lg text-lg text-slate-700 dark:text-white ' />
                   <span className='ml-2 inline-block lg:hidden'>Share</span>
                 </a>
               </li>
@@ -77,7 +83,7 @@ export default function Navbar({ transparent }: IndexNavbarProps) {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <i className='fab fa-twitter leading-lg text-lg text-slate-400 ' />
+                  <i className='fab fa-twitter leading-lg text-lg text-slate-700 dark:text-white ' />
                   <span className='ml-2 inline-block lg:hidden'>Tweet</span>
                 </a>
               </li>
@@ -89,7 +95,7 @@ export default function Navbar({ transparent }: IndexNavbarProps) {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <i className='fab fa-github leading-lg text-lg text-slate-400 ' />
+                  <i className='fab fa-github leading-lg text-lg text-slate-700 dark:text-white ' />
                   <span className='ml-2 inline-block lg:hidden'>Star</span>
                 </a>
               </li>

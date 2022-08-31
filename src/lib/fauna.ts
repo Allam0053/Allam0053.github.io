@@ -98,27 +98,51 @@ export const upsertVisitDocument = async (
           q.Get(q.Var('match'))
         ),
         visitCount: q.Select(['data', 'visitCount'], q.Get(q.Var('match'))),
+        userExist: q.Exists(
+          q.Select(['data', 'users', ip], q.Get(q.Var('match')))
+        ),
       },
       q.If(
         q.Var('contentExists'),
-        q.Update(q.Select('ref', q.Get(q.Var('match'))), {
-          data: {
-            visitCount: q.Add(q.Var('visitCount'), 1),
-            meanTimeElapsed: q.Divide(
-              q.Add(q.Var('meanTimeElapsed'), q.ToInteger(timeElapsed)),
-              q.Add(q.Var('visitCount'), q.ToInteger(1))
-            ),
-            users: {
-              [`${ip}`]: {
-                ip,
-                timeElapsed,
-                href,
-                createdAt,
-                updatedAt,
+        q.If(
+          q.Var('userExist'),
+          q.Update(q.Select('ref', q.Get(q.Var('match'))), {
+            data: {
+              visitCount: q.Add(q.Var('visitCount'), 1),
+              meanTimeElapsed: q.Divide(
+                q.Add(q.Var('meanTimeElapsed'), q.ToInteger(timeElapsed)),
+                q.Add(q.Var('visitCount'), q.ToInteger(1))
+              ),
+              users: {
+                [`${ip}`]: {
+                  ip,
+                  timeElapsed,
+                  href,
+                  updatedAt,
+                },
               },
             },
-          },
-        }),
+          }),
+
+          q.Update(q.Select('ref', q.Get(q.Var('match'))), {
+            data: {
+              visitCount: q.Add(q.Var('visitCount'), 1),
+              meanTimeElapsed: q.Divide(
+                q.Add(q.Var('meanTimeElapsed'), q.ToInteger(timeElapsed)),
+                q.Add(q.Var('visitCount'), q.ToInteger(1))
+              ),
+              users: {
+                [`${ip}`]: {
+                  ip,
+                  timeElapsed,
+                  href,
+                  createdAt,
+                  updatedAt,
+                },
+              },
+            },
+          })
+        ),
         q.Create(q.Collection('visits'), {
           data: {
             path: path,
