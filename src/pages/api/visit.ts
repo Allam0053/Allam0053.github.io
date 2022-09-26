@@ -35,7 +35,9 @@ export default async function visit(req: NextApiRequest, res: NextApiResponse) {
   } catch (error: any) {
     // eslint-disable-next-line no-console
     console.error(error);
-    res.status(500).json({ message: error.message ?? 'Internal Server Error' });
+    return res
+      .status(500)
+      .json({ message: error.message ?? 'Internal Server Error' });
   }
 }
 

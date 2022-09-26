@@ -32,7 +32,7 @@ export default function HomePage() {
         <section className='header relative flex h-screen max-h-860-px items-center pt-16 '>
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12'>
-              <div className='pt-32 sm:pt-0'>
+              <div className='pt-0 md:pt-32'>
                 <h2 className='text-4xl font-semibold text-slate-600'>
                   {`Hello, I'm Allam Taju Sarof.`}
                 </h2>

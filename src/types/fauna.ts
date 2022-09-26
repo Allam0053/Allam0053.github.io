@@ -12,6 +12,7 @@ export interface RatingUserT extends BaseUserT {
 export interface VisitUserT extends BaseUserT {
   timeElapsed: number;
   href: string;
+  visitCount: number;
 }
 
 export interface LikeDocumentT {

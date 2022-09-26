@@ -44,7 +44,7 @@ export default function Navbar({ transparent }: IndexNavbarProps) {
           </div>
           <div
             className={clsxm(
-              'flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none',
+              'flex-grow items-center rounded bg-white md:rounded-none lg:flex lg:bg-opacity-0 lg:shadow-none',
               navbarOpen ? ' block' : ' hidden'
             )}
             id='example-navbar-warning'

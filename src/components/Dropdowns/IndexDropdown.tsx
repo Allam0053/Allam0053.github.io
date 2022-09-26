@@ -23,7 +23,7 @@ const IndexDropdown = () => {
   return (
     <>
       <a
-        className='flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 hover:text-slate-500 dark:text-white lg:py-2'
+        className='flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 active:text-slate-800 dark:text-white lg:py-2'
         href='#pablo'
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -31,7 +31,7 @@ const IndexDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Pages
+        Pages <i className='fas fa-angle-down ml-2'></i>
       </a>
       <div
         ref={popoverDropdownRef}

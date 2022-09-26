@@ -98,8 +98,9 @@ export const upsertVisitDocument = async (
           q.Get(q.Var('match'))
         ),
         visitCount: q.Select(['data', 'visitCount'], q.Get(q.Var('match'))),
-        userExist: q.Exists(
-          q.Select(['data', 'users', ip], q.Get(q.Var('match')))
+        userExist: q.ContainsPath(
+          ['data', 'users', ip],
+          q.Get(q.Match(q.Index('get_visits_by_path'), '/'))
         ),
       },
       q.If(
@@ -118,6 +119,20 @@ export const upsertVisitDocument = async (
                   ip,
                   timeElapsed,
                   href,
+                  visitCount: q.Add(
+                    q.If(
+                      q.ContainsPath(
+                        ['data', 'users', ip, 'visitCount'],
+                        q.Get(q.Match(q.Index('get_visits_by_path'), '/'))
+                      ),
+                      q.Select(
+                        ['data', 'users', ip, 'visitCount'],
+                        q.Get(q.Var('match'))
+                      ),
+                      1
+                    ),
+                    1
+                  ),
                   updatedAt,
                 },
               },
@@ -136,6 +151,7 @@ export const upsertVisitDocument = async (
                   ip,
                   timeElapsed,
                   href,
+                  visitCount: 1,
                   createdAt,
                   updatedAt,
                 },
@@ -152,6 +168,7 @@ export const upsertVisitDocument = async (
                 ip,
                 timeElapsed,
                 href,
+                visitCount: 1,
                 createdAt,
                 updatedAt,
               },
@@ -186,4 +203,22 @@ function castToDBType(visitUser: VisitUserT) {
  *
  * else
  *   create doc
+ */
+
+/**
+ * 
+q.ContainsPath( ['data', 'users', "192.168.0.5" ], q.Get( q.Match(q.Index('get_visits_by_path'), '/')) )
+Let(
+      {
+        match: Match(Index('get_visits_by_path'), path),
+        contentExists: Exists(Var('match')),
+        meanTimeElapsed: Select(
+          ['data', 'meanTimeElapsed'],
+          Get(Var('match'))
+        ),
+        visitCount: Select(['data', 'visitCount'], Get(Var('match'))),
+        userExist: Exists(
+          Select(['data', 'users', ip], Get( Match(Index('get_visits_by_path'), path) ))
+        ),
+      },)
  */

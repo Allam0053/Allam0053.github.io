@@ -7,6 +7,7 @@ import Timeline from '@/components/content/Timeline';
 import Footer from '@/components/Footers/Footer';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
+import Tooltip from '@/components/Tooltip';
 
 // TODO: add journey of college
 
@@ -64,17 +65,36 @@ export default function Profile() {
                   </div>
                   <div className='w-full px-4 lg:order-3 lg:w-4/12 lg:self-center lg:text-right'>
                     <div className='mt-32 py-6 px-3 sm:mt-0'>
-                      <UnstyledLink
-                        href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
-                        openNewTab
-                      >
-                        <button
-                          className='mb-1 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
-                          type='button'
+                      <Tooltip content={<p>My Newest Experiences Update</p>}>
+                        <UnstyledLink
+                          href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
+                          openNewTab
                         >
-                          My CV
-                        </button>
-                      </UnstyledLink>
+                          <button
+                            className='mb-1 mr-2 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
+                            type='button'
+                          >
+                            My CV
+                          </button>
+                        </UnstyledLink>
+                      </Tooltip>
+                      <Tooltip
+                        content={
+                          <p>Temporary Transcript for Current Semester</p>
+                        }
+                      >
+                        <UnstyledLink
+                          href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
+                          openNewTab
+                        >
+                          <button
+                            className='mb-1 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
+                            type='button'
+                          >
+                            My Transcript
+                          </button>
+                        </UnstyledLink>
+                      </Tooltip>
                     </div>
                   </div>
                   <div className='w-full px-4 lg:order-1 lg:w-4/12'>
@@ -83,19 +103,19 @@ export default function Profile() {
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
                           22
                         </span>
-                        <span className='text-sm text-slate-400'>Friends</span>
+                        <span className='text-sm text-slate-400'>Visit</span>
                       </div>
                       <div className='mr-4 p-3 text-center'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          10
+                          -
                         </span>
-                        <span className='text-sm text-slate-400'>Photos</span>
+                        <span className='text-sm text-slate-400'>Likes</span>
                       </div>
                       <div className='p-3 text-center lg:mr-4'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          89
+                          -
                         </span>
-                        <span className='text-sm text-slate-400'>Comments</span>
+                        <span className='text-sm text-slate-400'>Shares</span>
                       </div>
                     </div>
                   </div>
@@ -126,7 +146,7 @@ export default function Profile() {
                 <div className='mt-10 border-t border-slate-200 py-10 text-center'>
                   <div className='flex flex-wrap justify-center'>
                     <div className='w-full px-4 lg:w-9/12'>
-                      <p className='mb-4 text-lg leading-relaxed text-slate-700'>
+                      <p className='mb-4 text-sm leading-relaxed text-slate-700 md:text-lg'>
                         {`Hello, I'm Allam. I'm a student of Informatics Engineering at ITS. I have so much interest in tech and I really like building apps. Currently, I have been creating web apps and mobile apps. I have been programming in PHP for about a year. I really enjoy learning many things such as routing, handling data, and many more in laravel. Now I am interested in javascript. I think this language is greatly popular so I had to learn it. It is a beautiful language with high versatility I think. The syntax is quite tricky and that's what makes it fascinating.`}
                       </p>
                       <p className='text-sm font-semibold text-slate-400'>
