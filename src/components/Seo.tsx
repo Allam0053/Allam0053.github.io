@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 // !STARTERCONF Change these default meta
 const defaultMeta = {
   title: 'Allam Taju Sarof',
-  siteName: 'Allam Taju',
-  description: 'Personal portofolio from Allam Taju, a software developer',
+  siteName: 'Allam Taju Sarof',
+  description:
+    'Personal portofolio from Allam Taju Sarof, a software developer',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://allam-taju.vercel.app',
   type: 'website',
@@ -57,7 +58,7 @@ export default function Seo(props: SeoProps) {
       <meta name='image' property='og:image' content={meta.image} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@th_clarence' />
+      <meta name='twitter:site' content='@masmaserius' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
@@ -72,7 +73,7 @@ export default function Seo(props: SeoProps) {
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='Allam Taju Sarof'
           />
         </>
       )}

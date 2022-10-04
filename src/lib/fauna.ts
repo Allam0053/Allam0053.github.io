@@ -87,6 +87,7 @@ export const upsertVisitDocument = async (
     castToDBType(visitUser);
 
   // console.log(timeElapsed);
+  // console.log(path, visitUser);
 
   const data = await faunaClient.query<ResVisitDocumentT>(
     q.Let(
