@@ -78,6 +78,20 @@ export default function Profile() {
                           </button>
                         </UnstyledLink>
                       </Tooltip>
+                      <Tooltip content={<p>My Sertifications</p>}>
+                        <UnstyledLink
+                          href='https://drive.google.com/drive/folders/1DPOEXzv7DBJV5_fy0qNAzPH6NDcu5jI5?usp=sharing'
+                          openNewTab
+                        >
+                          <button
+                            className='mb-1 mr-2 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
+                            type='button'
+                          >
+                            Achievement
+                          </button>
+                        </UnstyledLink>
+                      </Tooltip>
+
                       <Tooltip
                         content={
                           <p>Temporary Transcript for Current Semester</p>
