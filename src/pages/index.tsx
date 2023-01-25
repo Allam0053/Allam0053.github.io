@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import * as React from 'react';
 
 import Badge from '@/components/content/Badge';
@@ -77,19 +78,19 @@ export default function HomePage() {
               <div className='mr-auto ml-auto mt-32 w-full px-4 md:w-6/12'>
                 <div className='relative flex flex-wrap justify-center'>
                   <div className='my-4 w-full px-4 lg:w-6/12'>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vtw-index'>
-                      <div className='rounded-lg bg-red-600 p-8 text-center shadow-lg'>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vtw-index'>
+                      <div className='rounded-lg bg-[#3178C6] p-8 text-center shadow-lg'>
                         <img
                           alt='...'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
-                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/svelte.jpg'
+                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
-                          Svelte
+                          TypeScript
                         </p>
                       </div>
-                    </a>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index'>
+                    </Link>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index'>
                       <div className='mt-8 rounded-lg bg-sky-500 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
@@ -100,8 +101,8 @@ export default function HomePage() {
                           ReactJS
                         </p>
                       </div>
-                    </a>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index'>
+                    </Link>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index'>
                       <div className='mt-8 rounded-lg bg-slate-700 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
@@ -112,22 +113,22 @@ export default function HomePage() {
                           NextJS
                         </p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                   <div className='my-4 w-full px-4 lg:mt-16 lg:w-6/12'>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vtw-index'>
-                      <div className='rounded-lg bg-yellow-500 p-8 text-center shadow-lg'>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vtw-index'>
+                      <div className='rounded-lg bg-[#0E8AC8] p-8 text-center shadow-lg'>
                         <img
-                          alt='...'
+                          alt='java programming language logo'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
-                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png'
+                          src='/images/java.png'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
-                          JavaScript
+                          Java
                         </p>
                       </div>
-                    </a>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index'>
+                    </Link>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index'>
                       <div className='mt-8 rounded-lg bg-red-700 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
@@ -135,22 +136,22 @@ export default function HomePage() {
                           src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular.jpg'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
-                          Angular
+                          Laravel
                         </p>
                       </div>
-                    </a>
-                    <a href='https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vtw-index'>
-                      <div className='mt-8 rounded-lg bg-emerald-500 p-8 text-center shadow-lg'>
+                    </Link>
+                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vtw-index'>
+                      <div className='mt-8 rounded-lg bg-[#07B6D5] p-8 text-center shadow-lg'>
                         <img
                           alt='...'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
                           src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue.jpg'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
-                          Vue.js
+                          Tailwindcss
                         </p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
