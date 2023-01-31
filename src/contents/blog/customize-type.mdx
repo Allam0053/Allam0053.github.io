@@ -1,0 +1,139 @@
+---
+title: 'Customize Type'
+publishedAt: '2023-02-01'
+description: 'How to Customize TypeScript Type in _app.tsx'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs'
+---
+
+I tried to modify `AppProps` cause I want my `Component` to have additional property.
+I want to add auth property that is a boolean. So `Component.auth` has to be boolean.
+But, since the `typeof Component` does not have auth property, I have to edit the `Component` type that is registered in `AppProps`.
+this is my code:
+
+```tsx
+import { Flowbite } from 'flowbite-react';
+import type { AppProps } from 'next/app';
+import type { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'next-themes';
+
+import '@/styles/globals.css';
+// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
+import '@/styles/colors.css';
+
+/**
+ * !STARTERCONF info
+ * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
+ */
+
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{
+  session: Session;
+}>) {
+  return (
+    <ThemeProvider
+      themes={['light', 'dark']}
+      attribute='class'
+      defaultTheme='light'
+      enableSystem
+    >
+      <Flowbite>
+        <SessionProvider session={session}>
+          {Component.auth ? ( // this will cause an ERROR
+            <Auth>
+              <Component {...pageProps} />
+            </Auth>
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </SessionProvider>
+      </Flowbite>
+    </ThemeProvider>
+  );
+}
+
+function Auth({ children }) {
+  // if `{ required: true }` is supplied, `status` can only be "loading" or "authenticated"
+  const { status } = useSession({ required: true });
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  return children;
+}
+
+export default MyApp;
+```
+
+So basically just omit the `Component` from `AppProps` and assign it with the new one.
+
+```tsx
+import { Flowbite } from 'flowbite-react';
+import type { AppProps } from 'next/app';
+import type { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'next-themes';
+
+import '@/styles/globals.css';
+// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
+import '@/styles/colors.css';
+
+/**
+ * !STARTERCONF info
+ * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
+ */
+
+interface CustomAppProps
+  extends Omit<
+    AppProps<{
+      session: Session;
+    }>,
+    'Component'
+  > {
+  Component: AppProps['Component'] & { auth: boolean };
+}
+
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: CustomAppProps) {
+  return (
+    <ThemeProvider
+      themes={['light', 'dark']}
+      attribute='class'
+      defaultTheme='light'
+      enableSystem
+    >
+      <Flowbite>
+        <SessionProvider session={session}>
+          {Component.auth ? (
+            <Auth>
+              <Component {...pageProps} />
+            </Auth>
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </SessionProvider>
+      </Flowbite>
+    </ThemeProvider>
+  );
+}
+
+function Auth({ children }) {
+  // if `{ required: true }` is supplied, `status` can only be "loading" or "authenticated"
+  const { status } = useSession({ required: true });
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  return children;
+}
+
+export default MyApp;
+```

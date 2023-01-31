@@ -1,0 +1,37 @@
+---
+title: 'How to Re Render'
+publishedAt: '2023-02-01'
+description: 'Re rendering an Object State'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs,reactjs'
+---
+
+# How to Rerender State, Context, Reducer
+
+Basically re-render triggered everytime the value of the state is changed.
+
+if the state is an object, it has to update the reference to trigger a re-render.
+
+if the state is an primitive data type, it will update everytime the value change.
+
+```tsx
+function ObjectStateComponent() {
+  const [objectState, setObjectState] = useState({data: 0, owner: 'allam'});
+
+  useEffect(() => {
+    setObjectState({
+      ...objectState,
+      data: 1
+    });
+  }, []);
+
+  return <>{objectState.data}<>
+}
+```
+
+NOTE: ✅ this is the proper way to update the value and trigger a rerender. since the object is updated by declaring a new Object.
+
+this is a very common use case. But, how if our state has a complex property or we passed it throught a `ContextProvider` ??
+
+{to be continue}

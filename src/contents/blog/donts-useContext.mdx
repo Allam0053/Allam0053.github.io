@@ -1,0 +1,60 @@
+---
+title: 'Donts in useContext'
+publishedAt: '2023-02-01'
+description: 'My Exp on a usecase where I should not use useContext'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs,reactjs'
+---
+
+# DONTS in useContext
+
+if u accessing the value outside the children component, use the `state` itself.
+
+```tsx
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type checkedDataDispatchContextType = React.Dispatch<
+  React.SetStateAction<Map<any, baseData>>
+>;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const checkedDataContext = React.createContext(new Map<any, baseData>([]));
+const checkedDataDispatchContext =
+  React.createContext<checkedDataDispatchContextType>(() => {
+    return;
+  });
+
+const useChecked = () => React.useContext(checkedDataContext);
+const useCheckedDispatch = () => React.useContext(checkedDataDispatchContext);
+
+function MyContextProvider({ children }) {
+  const [checked, setChecked] = React.useState(new Map());
+  const referingToChecked = useChecked();
+
+  return (
+    <>
+      <checkedDataContext.Provider value={checked}>
+        <checkedDataDispatchContext.Provider value={setChecked}>
+          <Button
+            onClick={() => {
+              console.log('checked', checked);
+            }}
+          >
+            See Checked
+          </Button>
+          <Button
+            onClick={() => {
+              console.log('referingToChecked', referingToChecked);
+            }}
+          >
+            See referingToChecked
+          </Button>
+          {children}
+        </checkedDataDispatchContext.Provider>
+      </checkedDataContext.Provider>
+    </>
+  );
+}
+```
+
+referingToChecked will return empty Map even though we changed the value in children. This is because we called the useChecked in the top component of our provider, so it's mean we called it outside the provider. it does not matter if we render it inside the provider in the returning value, but we already called it in the top component at the first place.

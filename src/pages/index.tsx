@@ -78,19 +78,19 @@ export default function HomePage() {
               <div className='mr-auto ml-auto mt-32 w-full px-4 md:w-6/12'>
                 <div className='relative flex flex-wrap justify-center'>
                   <div className='my-4 w-full px-4 lg:w-6/12'>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='rounded-lg bg-[#3178C6] p-8 text-center shadow-lg'>
                         <img
                           alt='...'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
-                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png'
+                          src='/images/typescript.png'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
                           TypeScript
                         </p>
                       </div>
                     </Link>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='mt-8 rounded-lg bg-sky-500 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
@@ -102,7 +102,7 @@ export default function HomePage() {
                         </p>
                       </div>
                     </Link>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='mt-8 rounded-lg bg-slate-700 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
@@ -116,7 +116,7 @@ export default function HomePage() {
                     </Link>
                   </div>
                   <div className='my-4 w-full px-4 lg:mt-16 lg:w-6/12'>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='rounded-lg bg-[#0E8AC8] p-8 text-center shadow-lg'>
                         <img
                           alt='java programming language logo'
@@ -128,24 +128,24 @@ export default function HomePage() {
                         </p>
                       </div>
                     </Link>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='mt-8 rounded-lg bg-red-700 p-8 text-center shadow-lg'>
                         <img
                           alt='...'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
-                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular.jpg'
+                          src='/images/laravel.png'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
                           Laravel
                         </p>
                       </div>
                     </Link>
-                    <Link href='https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vtw-index'>
+                    <Link href='/project'>
                       <div className='mt-8 rounded-lg bg-[#07B6D5] p-8 text-center shadow-lg'>
                         <img
                           alt='...'
                           className='mx-auto w-16 max-w-full rounded-full bg-white p-2 shadow-md'
-                          src='https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue.jpg'
+                          src='/images/tailwindcss.png'
                         />
                         <p className='mt-4 text-lg font-semibold text-white'>
                           Tailwindcss
@@ -176,7 +176,7 @@ export default function HomePage() {
                   <Badge>Reactjs</Badge>
                   <Badge>Nextjs</Badge>
                   <Badge>Laravel</Badge>
-                  <Badge>Kotlin</Badge>
+                  <Badge>Java</Badge>
                   <Badge>Frontend</Badge>
                   <Badge>Backend</Badge>
                 </div>

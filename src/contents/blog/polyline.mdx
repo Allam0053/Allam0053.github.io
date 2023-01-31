@@ -1,0 +1,98 @@
+---
+title: 'Polyline Encoding for sequence of number'
+publishedAt: '2023-02-01'
+description: 'How to Minimize a sequence of number in JSON'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs,reactjs'
+---
+
+Polyline encoding mengubah penggunaan string yang terbatas pada angka nol sampai sembilan atau yang biasa disebut dengan base 10 menjadi base 64. Base 64 yang dimaksud adalah karakter dengan kode ascii 63 (inklusif) hingga 126. Dengan penggunaan karakter yang lebih banyak pada tiap 8-bit nya diharapkan dapat mengurangi penggunaan space pada saat transfer data melalui jaringan internet.
+
+[gambar table ascii]
+
+```pseudo
+
+deklarasi:
+  input: integer
+  chunkOf5: integer
+  resultOfOrBy64: integer
+  output: char[]
+  indexOutput: integer
+
+algoritma:
+  read input
+  if input < 0
+      input = input << 1
+      input = ~input
+  else
+      input = input << 1
+
+  indexOutput = 0
+  while input >= 0x20 do
+      chunkOf5 = (value & 0x1f)
+      resultOfOrBy64 = 0x20 | chunkOf5
+      output[indexOutput] = resultOfOrBy64 + 63
+
+      indexOutput = indexOutput + 1
+      input = input >> 5
+  end
+
+  print output
+```
+
+Pseudocode di atas digunakan untuk melakukan encoding pada satu integer. Sehingga algoritma di atas akan dipanggil untuk setiap integer yang akan di-encode. Apabila terdapat lebih dari satu integer, maka akan dihitung selisih angka tersebut dengan angka sebelumnya. Selisih tersebut akan menjadi angka yang di-encode. Setelah setiap angka berhasil di-encode, hasil dari setiap angka tersebut digabungkan sehingga membentuk string gabungan.
+Adapaun detail dari masukan dan keluaran dari implementasi pada aplikasi ini.
+
+data mentah berupa Array yang berisi elemen berupa Array dari dua integer
+[
+[integer1, integer2],
+[integer3, integer4],
+[integer5, integer6],
+...
+]
+
+```pseudo
+deklarasi:
+  input: char[]
+  input_iter: integer
+  result: integer
+  results: integer[]
+  result_iter: integer
+  shift: integer
+  bin: integer
+
+algoritma:
+  read input
+  input_iter = 0
+  result_iter = 0
+
+  while input_iter < input.len do
+    shift = 0
+    result = 1
+
+    do
+      bin = input[input_iter] - 63 -1
+      input_iter = input_iter + 1
+      result = result + bin << shift
+      shift = shift + 5
+    while bin >= 0x1f
+
+    if result & 1 == 1 do
+      result = result >> 1
+      result = ~result
+    else do
+      result = result >> 1
+    end
+    results[result_iter] = result
+    result_iter = result_iter + 1
+  end
+
+  print results
+```
+
+as
+
+Pada proses black box testing, pengujian dilakukan dengan menjalankan serangkaian perintah terhadap sistem yang selanjutnya akan disebut sebagai kasus pengujian. Kasus pengujian ini berkorelasi-kasus penggunaan dan kebutuhan fungsional yang sebelumnya sudah dirancang dan dijelaskan pada Bab 3.
+
+Pengujian dilakukan dengan menjalan serangkaian perintah terhadap aplikasi. Perintah tersebut meliputi interaksi pengguna dan interaksi dengan server. Pengujian ini dilakukan untuk memeriksa fungsionalitas aplikasi yang telah ditetapkan pada subbab spesifikasi kebutuhan perangkat lunak. Proses pengujian akan dijalankan dengan memberikan skenario penggunaan aplikasi.

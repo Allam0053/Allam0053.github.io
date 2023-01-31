@@ -26,8 +26,8 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         className='w-full rounded-t-lg align-middle'
         publicId={project.banner}
         alt={project.title}
-        width={400}
-        height={400}
+        width={500}
+        height={500}
         aspect={{ width: 1, height: 1 }}
         preview={false}
       />

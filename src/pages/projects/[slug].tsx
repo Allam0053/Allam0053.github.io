@@ -170,7 +170,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                 <div className='mt-10 border-t border-slate-200 py-10 text-left'>
                   <div className='grid grid-cols-4 gap-1 lg:gap-4'>
                     <aside className='relative w-full md:px-4'>
-                      <div className='sticky top-2'>
+                      <div className='sticky top-24'>
                         <TableOfContents
                           toc={toc}
                           minLevel={minLevel}
@@ -194,7 +194,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       </p> */}
                       <br />
                       <p className='text-sm font-semibold text-slate-400'>
-                        Edited in 2021
+                        Edited in {frontmatter.publishedAt}
                       </p>
                     </article>
                   </div>

@@ -1,6 +1,5 @@
 // components
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
 import React from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -14,17 +13,13 @@ export type IndexNavbarProps = {
 
 export default function Navbar({ transparent }: IndexNavbarProps) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
-  const { theme } = useTheme();
   return (
     <>
       <nav
         className={clsxm(
           'navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3 shadow',
-          transparent
-            ? 'bg-transparent backdrop-blur-lg'
-            : theme === 'light'
-            ? 'bg-white'
-            : 'bg-slate-600'
+          transparent ? 'bg-transparent backdrop-blur-lg' : 'bg-white',
+          'dark:bg-slate-600'
         )}
       >
         <div className='container mx-auto flex flex-wrap items-center justify-between px-4'>

@@ -26,6 +26,7 @@
     "axios": "^0.27.2",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
+    "date-fns": "^2.29.3",
     "dayjs": "^1.11.3",
     "esbuild": "^0.14.53",
     "faunadb": "^4.6.0",

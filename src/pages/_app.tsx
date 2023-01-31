@@ -15,7 +15,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function MyApp({ Component, pageProps }: AppProps) {
   // useVisit();
   return (
-    <ThemeProvider attribute='class' defaultTheme='light' enableSystem={false}>
+    <ThemeProvider
+      attribute='class'
+      defaultTheme='light'
+      themes={['light', 'dark']}
+      enableSystem={false}
+    >
       <Component {...pageProps} />
     </ThemeProvider>
   );

@@ -1,0 +1,71 @@
+---
+title: 'Customize Type'
+publishedAt: '2023-02-01'
+description: 'How to Customize TypeScript Type in _app.tsx'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs'
+---
+
+```js
+const BASE_URL = 'http://202.157.187.107';
+const PROD = ':8001';
+const DEV = ':8002';
+const API = `${BASE_URL}${DEV}/api`;
+
+const API_LOGIN = `${API}/login`;
+const API_REGISTER = `${API}/register`;
+
+const API_ALAT = `${API}/alat`;
+
+const API_IGLUCO = `${API}/data-igluco`;
+const API_ICHOL = `${API}/data-ichol`;
+const API_IHEART = `${API}/data-iheart`;
+
+const API_PASIEN = `${API}/pasien`;
+
+const TOKEN = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkX2xvZ2luIjoiMSIsIm5hbWFfYWxhdCI6bnVsbCwibG9naW5fdHlwZSI6InBhc2llbiIsImlhdCI6MTY3MjA1MTA3NSwiZXhwIjoxNjc0NjQzMDc1fQ.6_MDtRE61pLeEgmlVH10F1vhHK_BzRoxSqWQlvhKYP0`;
+
+const requestHeaders = new Headers({
+  Accept: 'application/json, text/plain, */*',
+  Authorization: `Bearer ${TOKEN}`,
+  'Content-Type': 'application/json; charset=UTF-8',
+  Host: '202.157.187.107:8002',
+  Origin: 'http://localhost:3000',
+  Referer: 'http://localhost:3000/',
+});
+
+requestHeaders.get('Authorization');
+
+fetch(API_ALAT, {
+  method: 'GET',
+  headers: requestHeaders,
+  mode: 'no-cors',
+})
+  .then((response) => {
+    console.log(response.status);
+    if (response.ok == true) {
+      return response.json();
+    }
+  })
+  .then((json) => console.log(json))
+  .catch((err) => console.log(err));
+
+function examplePost() {
+  fetch(API_LOGIN, {
+    method: 'POST',
+    body: JSON.stringify({
+      email: 'admin@admin.com',
+      password: 'password',
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      crossdomain: true,
+    },
+    mode: 'no-cors',
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((err) => console.log(err));
+}
+```

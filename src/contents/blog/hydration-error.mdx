@@ -1,0 +1,47 @@
+---
+title: 'Hydration Error on next-theme'
+publishedAt: '2023-02-01'
+description: 'next-theme error when useTheme is called and the theme is rendered to DOM'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs,reactjs'
+---
+
+## Hydration Error (is actually not an error)
+
+This error accure when server-rendered HTML does not match with the client result.
+in my case, it appears when I use `next-theme`. It appear in hooks that `next-theme` used (in `[theme, setTheme]`).
+when client start the lifecycle to `componentDidMount` or `React.useEffect(fn, [])` the client rendered the `theme` and that's cause the Hydration Error.
+
+for example:
+
+- code:
+
+  ```jsx
+     import { useTheme } from 'next-theme';
+
+     export function helloWorld() {
+        const [theme, setTheme] = useTheme();
+
+        return (
+           <>{theme}<>
+        );
+     }
+  ```
+
+  the server-rendered will send an empty div, `theme` is not rendered from the server, so it's just `<><>` instead of `<>{theme}<>`
+
+- when the code is received to client, the `theme` got rendered. so this is where I am right NOW.
+
+  - server source:
+    ```html
+    <><>
+    ```
+  - NOW:
+    ```html
+    <>dark<>
+    ```
+    note: my chrome default `color-scheme` is dark
+
+- as can be seen that there is difference between server source and NOW. that cause the Hydration Error.
+- insisting a value is a way to get rid of Hydration Error. `{theme ? theme : 'dark'}`.

@@ -1,0 +1,150 @@
+---
+title: 'Some Tips from My Projects'
+publishedAt: '2023-02-01'
+description: 'Tips from ifinger'
+englishOnly: 'true'
+banner: 'cld-sample-2'
+tags: 'typescript,nextjs,reactjs'
+---
+
+`createContext(init)`
+
+init only used when the context first init the provider.
+
+### Tips: Updating Query For Router
+
+sometimes we want to update or insert a query to our router.
+here is a use case where I want to insert some query and a
+
+```tsx
+React.useEffect(() => {
+  if (router.query['something'] === undefined) {
+    router.push(someQuery);
+  }
+  if (router.query['someotherthing'] === undefined) {
+    // will not be run
+    router.push(someOtherQuery);
+  }
+}, []);
+```
+
+router will be updated but will not trigger a mounting for this component again. that's why we need to update the query for router by communal.
+
+```tsx
+React.useEffect(() => {
+  let queries = {};
+  if (router.query['something'] === undefined) {
+    queries = {
+      ...queries,
+      ...something,
+    };
+  }
+  if (router.query['someotherthing'] === undefined) {
+    // will not be run
+    queries = {
+      ...queries,
+      ...someotherthing,
+    };
+  }
+  router.push(queries);
+}, []);
+```
+
+### Tips: Do We Need to Pass setState to hooks deps?
+
+React guarantees that setState function identity is stable and won’t change on re-renders. This is why it’s safe to omit from the useEffect or useCallback dependency list. <a href='https://reactjs.org/docs/hooks-reference.html'>React Docs - Hooks API Reference</a>.
+
+### Tips: The Essence of useMemo
+
+useMemo is similiar to useState. The difference is useMemo calculate the value of the state, if it does not change, then it won't trigger rerender. useState always trigger rerender everytime the setstate is called, except we use the callback parameter for the setstate.
+
+### Tips: Dependency Array
+
+useState deps is quite tricky sometimes. sometimes we just one to rerender every time the value changes, but setState is always trigger the rerender even though the value of the particular state is the same.
+here is a use case where I try to update the router query if it was undefined.
+
+```tsx
+// RouterChange.tsx
+// in some file where I need to update the router.
+const router = useRouter();
+
+useEffect(() => {
+  // console.log(paginationReducerGlucose);
+  const query: Record<string, string> = {};
+  if (router.query['page[number]'] === undefined) {
+    query['page[number]'] = '1';
+  }
+  if (router.query['page[size]'] === undefined) {
+    query['page[size]'] = '10';
+  }
+  if (router.query['fetchalldata'] === undefined) {
+    query['fetchalldata'] = 'false';
+  }
+  if (router.query['pagination'] === undefined) {
+    query['pagination'] = 'true';
+  }
+  router.push({ query: query });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [router.query]);
+```
+
+since I update the router every time the object of router.query changes, I will trigger an infinite rerender. and the `router.query['page[number]']` will be `1` and then `undefined` and then `1` and then `undefined` and then `1` and then `undefined` and so on. That's why I need to change the deps array. Below this is the optimized deps.
+
+```tsx
+// useMemoRouterQuery.ts
+import { useRouter } from 'next/router';
+import React from 'react';
+
+export default function useMemoRouterQuery() {
+  const router = useRouter();
+
+  const pageNumber = React.useMemo(() => {
+    const pageNumber = router.query['page[number]'];
+    return typeof pageNumber === 'string' ? Number(pageNumber) : 1;
+  }, [router.query]);
+  const pageSize = React.useMemo(() => {
+    const pageSize = router.query['page[size]'];
+    return typeof pageSize === 'string' ? Number(pageSize) : 10;
+  }, [router.query]);
+  const fetchAllData = React.useMemo(() => {
+    const fetchAllData = router.query['fetchalldata'];
+    return typeof fetchAllData === 'string' ? fetchAllData : 'false';
+  }, [router.query]);
+  const pagination = React.useMemo(() => {
+    const pagination = router.query['pagination'];
+    return typeof pagination === 'string' ? pagination : 'true';
+  }, [router.query]);
+
+  return {
+    pageNumber,
+    pageSize,
+    fetchAllData,
+    pagination,
+  };
+}
+```
+
+```tsx
+// RouterChange.tsx
+// in some file where I need to update the router.
+const { pageNumber, pageSize, fetchAllData, pagination } = useMemoRouterQuery(); // nice for dependency array
+
+useEffect(() => {
+  // console.log(paginationReducerGlucose);
+  const query: Record<string, string> = {};
+  if (router.query['page[number]'] === undefined) {
+    query['page[number]'] = '1';
+  }
+  if (router.query['page[size]'] === undefined) {
+    query['page[size]'] = '10';
+  }
+  if (router.query['fetchalldata'] === undefined) {
+    query['fetchalldata'] = 'false';
+  }
+  if (router.query['pagination'] === undefined) {
+    query['pagination'] = 'true';
+  }
+  router.push({ query: query });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [pageNumber, pageSize, fetchAllData, pagination]);
+```
