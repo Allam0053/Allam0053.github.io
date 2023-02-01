@@ -39,7 +39,7 @@ InferGetStaticPropsType<typeof getStaticProps>) {
             >
               Here is where I&apos;m flexing my writes.
             </p>
-            <div className='grid gap-4 sm:grid-cols-2 md:p-2 xl:grid-cols-3'>
+            <div className='grid list-none gap-4 sm:grid-cols-2 md:p-2 xl:grid-cols-3'>
               {posts.map((post) => (
                 <BlogCard
                   key={post.slug}

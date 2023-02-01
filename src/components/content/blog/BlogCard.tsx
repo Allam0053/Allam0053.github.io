@@ -23,6 +23,7 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <li
+      style={{ textDecoration: 'none' }}
       className={clsx(
         'w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark',
         'scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu',
@@ -39,13 +40,12 @@ export default function BlogCard({
       >
         <div className='relative'>
           <CloudinaryImg
-            noStyle
-            className='pointer-events-none overflow-hidden rounded-t-md'
-            publicId={`theodorusclarence/banner/${post.banner}`}
-            alt='Photo taken from unsplash'
-            width={1200}
-            height={(1200 * 2) / 5}
-            aspect={{ height: 2, width: 5 }}
+            className='w-full rounded-t-lg align-middle'
+            publicId={post.banner}
+            alt={post.title}
+            width={500}
+            height={500}
+            aspect={{ width: 1, height: 1 }}
             preview={false}
           />
           <div
