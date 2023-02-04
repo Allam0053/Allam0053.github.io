@@ -80,7 +80,7 @@ export default function Profile() {
                       </Tooltip>
                       <Tooltip content={<p>My Sertifications</p>}>
                         <UnstyledLink
-                          href='https://drive.google.com/drive/folders/1DPOEXzv7DBJV5_fy0qNAzPH6NDcu5jI5?usp=sharing'
+                          href='https://drive.google.com/file/d/19sLZPBWUxcDK7EbV1GZr9qhJtxfWptqu/view?usp=sharing'
                           openNewTab
                         >
                           <button
