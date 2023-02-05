@@ -36,7 +36,7 @@ export default function BlogCard({
     >
       <UnstyledLink
         className='block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
-        href={`/blog/${post.slug}`}
+        href={`/blogs/${post.slug}`}
       >
         <div className='relative'>
           <CloudinaryImg
