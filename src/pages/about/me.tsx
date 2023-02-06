@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import useContentMeta from '@/hooks/useContentMeta';
+
 import Timeline from '@/components/content/Timeline';
 import Footer from '@/components/Footers/Footer';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -12,6 +14,7 @@ import Tooltip from '@/components/Tooltip';
 // TODO: add journey of college
 
 export default function Profile() {
+  const meta = useContentMeta('me', { runIncrement: true });
   return (
     <>
       <IndexNavbar transparent />
@@ -115,22 +118,22 @@ export default function Profile() {
                     <div className='flex justify-center py-4 pt-8 lg:pt-4'>
                       <div className='mr-4 p-3 text-center'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          22
+                          {meta?.views?.toLocaleString() ?? '–––'}
                         </span>
                         <span className='text-sm text-slate-400'>Visit</span>
                       </div>
-                      <div className='mr-4 p-3 text-center'>
+                      {/* <div className='mr-4 p-3 text-center'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                          -
+                          {meta?.likesByUser?.toLocaleString() ?? '–––'}
                         </span>
                         <span className='text-sm text-slate-400'>Likes</span>
-                      </div>
-                      <div className='p-3 text-center lg:mr-4'>
+                      </div> */}
+                      {/* <div className='p-3 text-center lg:mr-4'>
                         <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
                           -
                         </span>
                         <span className='text-sm text-slate-400'>Shares</span>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

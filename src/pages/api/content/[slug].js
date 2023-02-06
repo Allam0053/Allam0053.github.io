@@ -39,7 +39,7 @@ export default async function handler(req, res) {
       //   }
       // }
 
-      res.status(200).json({
+      return res.status(200).json({
         contentViews: data?.data?.views ?? 0,
         contentLikes: data?.data?.likes ?? 0,
         likesByUser: data?.data?.likesByUser?.[sessionId] ?? 0,
@@ -59,14 +59,14 @@ export default async function handler(req, res) {
       //   }
       // }
 
-      res.status(201).json({
+      return res.status(201).json({
         contentViews: data?.views ?? 0,
         contentLikes: data?.likes ?? 0,
       });
     }
   } catch (err) {
     // console.log('🚀 ~ file: test.js ~ line 15 ~ handler ~ err', { err });
-    res.status(500).json({
+    return res.status(500).json({
       statusCode: 500,
       message: err.message,
     });

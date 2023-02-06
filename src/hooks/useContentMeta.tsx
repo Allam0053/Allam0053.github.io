@@ -5,9 +5,11 @@ import useSWR from 'swr';
 
 import { cacheOnly } from '@/lib/swr';
 
-import { contentMetaFlag, incrementMetaFlag } from '@/constants/env';
-
+// import { contentMetaFlag, incrementMetaFlag } from '@/constants/env';
 import { ContentMeta, SingleContentMeta } from '@/types/meta';
+
+const contentMetaFlag = true,
+  incrementMetaFlag = true;
 
 export default function useContentMeta(
   slug: string,
