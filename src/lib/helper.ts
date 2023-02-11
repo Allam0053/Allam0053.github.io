@@ -53,3 +53,15 @@ export function getFromLocalStorage(key: string) {
   }
   return null;
 }
+
+export function mapSync<T, U>(
+  arr: T[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fn: (value: T, index?: number, array?: T[]) => U
+) {
+  const result: U[] = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(fn(arr[i], i));
+  }
+  return result;
+}

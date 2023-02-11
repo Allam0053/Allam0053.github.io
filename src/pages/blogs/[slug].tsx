@@ -6,6 +6,8 @@ import * as React from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
+import '@/styles/mdx.css';
+
 // import { trackEvent } from '@/lib/analytics';
 import { cleanBlogPrefix } from '@/lib/helper';
 import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
@@ -184,7 +186,7 @@ export default function SingleBlogPage({
             <hr className='dark:border-gray-600' />
 
             <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx prose dark:prose-invert mx-auto mt-4 w-full transition-colors'>
+              <article className='mdx prose blog-prose dark:prose-invert mx-auto mt-4 w-full transition-colors'>
                 <Component
                   components={
                     {

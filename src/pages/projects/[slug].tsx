@@ -3,6 +3,8 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import * as React from 'react';
 
+import '@/styles/mdx.css';
+
 import clsxm from '@/lib/clsxm';
 import { getFileBySlug, getFiles } from '@/lib/mdx';
 import useScrollSpy from '@/hooks/useScrollspy';
@@ -179,7 +181,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       </div>
                     </aside>
 
-                    <article className='mdx prose col-span-3 px-4'>
+                    <article className='mdx prose blog-prose col-span-3 px-4'>
                       <Component
                         components={
                           {

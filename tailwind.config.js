@@ -129,6 +129,11 @@ module.exports = {
   ],
   plugins: [
     require('@tailwindcss/forms'),
+    plugin(function ({ addBase }) {
+      addBase({
+        html: { fontSize: '14px' },
+      });
+    }),
     plugin(function ({ addComponents, theme }) {
       const screens = theme('screens', {});
       addComponents([

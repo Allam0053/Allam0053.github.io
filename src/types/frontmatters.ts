@@ -66,3 +66,9 @@ export type Frontmatter =
   | ProjectFrontmatter
   | BlogFrontmatter
   | LibraryFrontmatter;
+
+type intersected = FrontmatterWithDate & FrontmatterWithTags;
+export type Prettify<T> = {
+  [K in keyof T]: T[K];
+};
+export type ExpFrontmatter = Prettify<intersected>;
