@@ -6,7 +6,7 @@ import * as React from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
-import '@/styles/mdx.css';
+import '@/pages/projects/mdx.module.css';
 
 // import { trackEvent } from '@/lib/analytics';
 import { cleanBlogPrefix } from '@/lib/helper';

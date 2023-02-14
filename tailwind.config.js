@@ -131,7 +131,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     plugin(function ({ addBase }) {
       addBase({
-        html: { fontSize: '14px' },
+        html: { fontSize: '12px' },
       });
     }),
     plugin(function ({ addComponents, theme }) {
@@ -139,6 +139,13 @@ module.exports = {
       addComponents([
         {
           '.container': { width: '100%' },
+        },
+        {
+          [`@media (min-width: ${screens.sm})`]: {
+            html: {
+              'font-size': '14px',
+            },
+          },
         },
         {
           [`@media (min-width: ${screens.sm})`]: {
