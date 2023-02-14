@@ -118,7 +118,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                   <div className='mt-32 py-6 px-3 sm:mt-0'>
                     <Tooltip content={<p>My Newest Experiences Update</p>}>
                       <UnstyledLink
-                        href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
+                        href='https://drive.google.com/file/d/1B-rjYu7hvr7efGAfmVsYM7yfhQsPx9Jh/view?usp=sharing'
                         openNewTab
                       >
                         <button
@@ -131,7 +131,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                     </Tooltip>
                     <Tooltip content={<p>My Sertifications</p>}>
                       <UnstyledLink
-                        href='https://drive.google.com/file/d/19sLZPBWUxcDK7EbV1GZr9qhJtxfWptqu/view?usp=sharing'
+                        href='https://drive.google.com/drive/folders/18iwsqkAHBErE1cCLR7HqfPhN61jNr06C?usp=sharing'
                         openNewTab
                       >
                         <button
@@ -147,7 +147,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                       content={<p>Temporary Transcript for Current Semester</p>}
                     >
                       <UnstyledLink
-                        href='https://drive.google.com/file/d/1BBU_5Rh_b1AT4pWK4IsyqoZwKnZ-zKpv/view?usp=sharing'
+                        href='https://drive.google.com/file/d/1B1aNAQLiaTr83QqidmytwgghvUIuJk5H/view?usp=sharing'
                         openNewTab
                       >
                         <button
