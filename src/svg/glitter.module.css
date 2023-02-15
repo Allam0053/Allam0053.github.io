@@ -1,0 +1,163 @@
+@-webkit-keyframes stretchr {
+  0% {
+    -webkit-transform: translateX(0px) scaleX(0.2);
+    transform: translateX(0px) scaleX(0.2);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: translateX(16px) scaleX(1);
+    transform: translateX(16px) scaleX(1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateX(24px) scaleX(0.1);
+    transform: translateX(24px) scaleX(0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes stretchr {
+  0% {
+    -webkit-transform: translateX(0px) scaleX(0.2);
+    transform: translateX(0px) scaleX(0.2);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    -webkit-transform: translateX(16px) scaleX(1);
+    transform: translateX(16px) scaleX(1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateX(24px) scaleX(0.1);
+    transform: translateX(24px) scaleX(0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+.stretchr {
+  -webkit-animation: stretchr 800ms infinite both;
+  animation: stretchr 800ms infinite both;
+}
+
+@-webkit-keyframes stretchl {
+  0% {
+    -webkit-transform: translateX(0px) scaleX(0.2);
+    transform: translateX(0px) scaleX(0.2);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: translateX(-16px) scaleX(-1);
+    transform: translateX(-16px) scaleX(-1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateX(-24px) scaleX(-0.1);
+    transform: translateX(-24px) scaleX(-0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes stretchl {
+  0% {
+    -webkit-transform: translateX(0px) scaleX(0.2);
+    transform: translateX(0px) scaleX(0.2);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    -webkit-transform: translateX(-16px) scaleX(-1);
+    transform: translateX(-16px) scaleX(-1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateX(-24px) scaleX(-0.1);
+    transform: translateX(-24px) scaleX(-0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+.stretchl {
+  -webkit-animation: stretchl 800ms infinite both;
+  animation: stretchl 800ms infinite both;
+}
+
+@-webkit-keyframes stretcht {
+  0% {
+    -webkit-transform: translateY(0px) scaleY(-0.2);
+    transform: translateY(0px) scaleY(-0.2);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: translateY(-16px) scaleY(-1);
+    transform: translateY(-16px) scaleY(-1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateY(-24px) scaleY(-0.1);
+    transform: translateY(-24px) scaleY(-0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes stretcht {
+  0% {
+    -webkit-transform: translateY(0px) scaleY(-0.2);
+    transform: translateY(0px) scaleY(-0.2);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    -webkit-transform: translateY(-16px) scaleY(-1);
+    transform: translateY(-16px) scaleY(-1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateY(-24px) scaleY(-0.1);
+    transform: translateY(-24px) scaleY(-0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+.stretcht {
+  -webkit-animation: stretcht 800ms infinite both;
+  animation: stretcht 800ms infinite both;
+}
+
+@-webkit-keyframes stretchb {
+  0% {
+    -webkit-transform: translateY(0px) scaleY(0.2);
+    transform: translateY(0px) scaleY(0.2);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: translateY(16px) scaleY(1);
+    transform: translateY(16px) scaleY(1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateY(24px) scaleY(0.1);
+    transform: translateY(24px) scaleY(0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes stretchb {
+  0% {
+    -webkit-transform: translateY(0px) scaleY(0.2);
+    transform: translateY(0px) scaleY(0.2);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    -webkit-transform: translateY(16px) scaleY(1);
+    transform: translateY(16px) scaleY(1);
+    animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: translateY(24px) scaleY(0.1);
+    transform: translateY(24px) scaleY(0.1);
+    animation-timing-function: ease-out;
+  }
+}
+
+.stretchb {
+  -webkit-animation: stretchb 800ms infinite both;
+  animation: stretchb 800ms infinite both;
+}

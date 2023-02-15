@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_376_2)">
+<mask id="mask0_376_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="29" y="0" width="453" height="510">
+<rect x="169.28" y="0.5" width="169.644" height="170.54" rx="84.8222" fill="black" stroke="black"/>
+<rect x="0.663164" y="-0.24137" width="341.76" height="67.3219" rx="8.5" transform="matrix(0.420849 -0.907131 0.905479 0.424392 27.6026 483.468)" fill="black" stroke="black"/>
+<rect width="342.76" height="68.3219" rx="9" transform="matrix(0.420804 0.907152 -0.905457 0.424437 339.855 171.54)" fill="black"/>
+</mask>
+<g mask="url(#mask0_376_2)">
+<rect width="512" height="512" fill="url(#paint0_linear_376_2)"/>
+</g>
+<rect x="66" y="317" width="12" height="2" rx="1" fill="#41EAD4"/>
+<rect x="61" y="314" width="12" height="2" rx="1" transform="rotate(-90 61 314)" fill="#41EAD4"/>
+<rect x="46" y="317" width="12" height="2" rx="1" fill="#41EAD4"/>
+<rect x="63" y="322" width="12" height="2" rx="1" transform="rotate(90 63 322)" fill="#41EAD4"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_376_2" x1="5.76958e-06" y1="256.594" x2="542.103" y2="116.406" gradientUnits="userSpaceOnUse">
+<stop offset="0.322917" stop-color="#00C9E0"/>
+<stop offset="1" stop-color="#41EAD4"/>
+</linearGradient>
+<clipPath id="clip0_376_2">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
+</svg>

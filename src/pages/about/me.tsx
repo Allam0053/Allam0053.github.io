@@ -12,6 +12,7 @@ import useContentMeta from '@/hooks/useContentMeta';
 import Accent from '@/components/Accent';
 import MDXComponents from '@/components/content/MDXComponents';
 import Footer from '@/components/Footers/Footer';
+import LoadingPage from '@/components/layout/Loading';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import Tooltip from '@/components/Tooltip';
@@ -19,6 +20,7 @@ import Tooltip from '@/components/Tooltip';
 import { ExpFrontmatter } from '@/types/frontmatters';
 
 export default function Profile({ timelines, tags }: ProfileProps) {
+  const [loading, setLoading] = React.useState(false);
   // const Component = React.useMemo(() => getMDXComponent(code), [code]);
   const Components = React.useMemo(
     () =>
@@ -64,10 +66,16 @@ export default function Profile({ timelines, tags }: ProfileProps) {
   };
   //#endregion  //*======== Tag ===========
 
+  React.useEffect(() => {
+    setLoading((_l) => true);
+    setTimeout(() => setLoading((_l) => false), 1000);
+  }, []);
+
   return (
     <>
-      <IndexNavbar transparent />
-      <main className='profile-page'>
+      {loading && <LoadingPage />}
+      {!loading && <IndexNavbar transparent />}
+      <main className={clsxm('profile-page', loading ? 'hidden' : 'slide-top')}>
         <section className='relative block h-500-px'>
           <div
             className='absolute top-0 h-full w-full bg-cover bg-center'
