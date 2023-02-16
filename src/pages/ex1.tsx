@@ -10,7 +10,7 @@ import Glitter from '@/svg/glitter';
 import Ico from '@/svg/ico';
 
 export default function Ex1() {
-  const [num, setNum] = React.useState(0);
+  const [, setNum] = React.useState(0);
   // const [glitter, setGlitter] = React.useState(0);
   return (
     <Layout>
@@ -23,7 +23,7 @@ export default function Ex1() {
       <IndexNavbar />
       <div className='flex h-screen w-screen flex-col justify-center'>
         <div className='flex w-full justify-center'>
-          <Ico num={num} />
+          <Ico />
         </div>
         <div className='flex w-full justify-center gap-4'>
           <Tooltip content={<p>Fill The Icon</p>}>

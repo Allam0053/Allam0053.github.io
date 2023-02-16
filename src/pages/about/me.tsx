@@ -66,17 +66,58 @@ export default function Profile({ timelines, tags }: ProfileProps) {
   };
   //#endregion  //*======== Tag ===========
 
+  const [toolTipShowed, setToolTipShowed] = React.useState(false);
+  const toolTipRefCV = React.useRef(null);
+  const toolTipRefAchivement = React.useRef(null);
+  const toolTipRefTranscript = React.useRef(null);
+
+  const triggerMouseEnterToolTip = React.useCallback(() => {
+    const eventEnter = new MouseEvent('mouseenter', {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    const eventLeave = new MouseEvent('mouseleave', {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    const refs = [toolTipRefCV, toolTipRefAchivement, toolTipRefTranscript];
+    let index = 0;
+    const triggerNext = () => {
+      if (index < refs.length) {
+        const ref = refs[index];
+        if ((ref.current as unknown as HTMLElement)?.dispatchEvent) {
+          (ref.current as unknown as HTMLElement).dispatchEvent(eventEnter);
+          setTimeout(() => {
+            (ref.current as unknown as HTMLElement).dispatchEvent(eventLeave);
+          }, 1500);
+        }
+        index++;
+        setTimeout(triggerNext, 2000);
+      }
+    };
+    triggerNext();
+  }, []);
+
   React.useEffect(() => {
     setLoading((_l) => true);
-    setTimeout(() => setLoading((_l) => false), 1000);
+    setTimeout(() => setLoading((_l) => false), 500);
   }, []);
+
+  React.useEffect(() => {
+    if (loading) return;
+    if (toolTipShowed) return;
+    triggerMouseEnterToolTip();
+    setToolTipShowed(true);
+  }, [loading, toolTipShowed, triggerMouseEnterToolTip]);
 
   return (
     <>
       {loading && <LoadingPage />}
-      {!loading && <IndexNavbar transparent />}
-      <main className={clsxm('profile-page', loading ? 'hidden' : 'slide-top')}>
-        <section className='relative block h-500-px'>
+      <IndexNavbar className='fade-in-start' transparent />
+      <main className={clsxm('profile-page', !loading && 'fade-in-start')}>
+        <section className='relative block h-500-px' data-fade='1'>
           <div
             className='absolute top-0 h-full w-full bg-cover bg-center'
             style={{
@@ -113,10 +154,13 @@ export default function Profile({ timelines, tags }: ProfileProps) {
           <div className='container mx-auto px-4'>
             <div className='relative mb-6 -mt-64 flex w-full min-w-0 flex-col break-words rounded-lg bg-white px-6 shadow-xl'>
               <div className='flex flex-wrap justify-center'>
-                <div className='flex w-full justify-center px-4 lg:order-2 lg:w-3/12'>
+                <div
+                  className='flex w-full justify-center px-4 lg:order-2 lg:w-3/12'
+                  data-fade='2'
+                >
                   <div className='relative'>
                     <img
-                      alt='...'
+                      alt='Allam Taju Sarof Formal Pic'
                       src='/images/1.jpeg'
                       className='absolute -m-16 -ml-20 h-auto max-w-150-px rounded-full border-none align-middle shadow-xl lg:-ml-16'
                     />
@@ -128,10 +172,12 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                       <UnstyledLink
                         href='https://drive.google.com/file/d/1B-rjYu7hvr7efGAfmVsYM7yfhQsPx9Jh/view?usp=sharing'
                         openNewTab
+                        ref={toolTipRefCV}
                       >
                         <button
                           className='mb-1 mr-2 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
                           type='button'
+                          data-fade='3'
                         >
                           My CV
                         </button>
@@ -141,10 +187,12 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                       <UnstyledLink
                         href='https://drive.google.com/drive/folders/18iwsqkAHBErE1cCLR7HqfPhN61jNr06C?usp=sharing'
                         openNewTab
+                        ref={toolTipRefAchivement}
                       >
                         <button
                           className='mb-1 mr-2 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
                           type='button'
+                          data-fade='4'
                         >
                           Achievement
                         </button>
@@ -157,10 +205,12 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                       <UnstyledLink
                         href='https://drive.google.com/file/d/1B1aNAQLiaTr83QqidmytwgghvUIuJk5H/view?usp=sharing'
                         openNewTab
+                        ref={toolTipRefTranscript}
                       >
                         <button
                           className='mb-1 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2'
                           type='button'
+                          data-fade='5'
                         >
                           My Transcript
                         </button>
@@ -227,7 +277,10 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                 </div>
               </div>
 
-              <div className='inline-flex w-full flex-col items-center gap-4 px-4'>
+              <div
+                className='inline-flex w-full flex-col items-center gap-4 px-4'
+                data-fade='6'
+              >
                 <span className='w-full font-medium'>Choose topic:</span>
                 <div className='flex w-full flex-wrap justify-items-start gap-4'>
                   {tags.map((tag) => (
@@ -244,7 +297,10 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                 </div>
               </div>
 
-              <div className='flex w-full flex-col items-center px-4 py-8'>
+              <div
+                className='flex w-full flex-col items-center px-4 py-8'
+                data-fade='7'
+              >
                 <ol className='relative border-l border-gray-200 dark:border-gray-700'>
                   {Components &&
                     Components.map((Component, index) => (
