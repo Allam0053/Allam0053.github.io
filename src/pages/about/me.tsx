@@ -2,8 +2,6 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import * as React from 'react';
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
 import clsxm from '@/lib/clsxm';
 import { getAboutMeExpContent, getExpTags } from '@/lib/mdx';
 import { getTags } from '@/lib/mdx-client';
@@ -115,7 +113,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
   return (
     <>
       {loading && <LoadingPage />}
-      <IndexNavbar className='fade-in-start' transparent />
+      <IndexNavbar transparent className={loading ? '' : 'fade-in-start'} />
       <main className={clsxm('profile-page', !loading && 'fade-in-start')}>
         <section className='relative block h-500-px' data-fade='1'>
           <div

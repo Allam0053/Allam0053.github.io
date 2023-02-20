@@ -21,6 +21,10 @@ export default function Navbar({
   ...rest
 }: IndexNavbarProps) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  // const [fadeInStart, setFadeInStart] = React.useState(false);
+  // React.useEffect(() => {
+  //   setFadeInStart(true);
+  // }, []);
   return (
     <>
       <nav
@@ -28,6 +32,7 @@ export default function Navbar({
           'navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3 shadow',
           transparent ? 'bg-transparent backdrop-blur-lg' : 'bg-white',
           'dark:bg-slate-600',
+          // fadeInStart ? 'fade-in-start' : '',
           className
         )}
         {...rest}

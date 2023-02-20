@@ -5,6 +5,7 @@ import * as React from 'react';
 import Badge from '@/components/content/Badge';
 import Footer from '@/components/Footers/Footer';
 import Layout from '@/components/layout/Layout';
+import LoadingPage from '@/components/layout/Loading';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import Seo from '@/components/Seo';
@@ -14,6 +15,11 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => setLoading((_l) => false), 500);
+  }, []);
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -24,7 +30,8 @@ export default function HomePage() {
         url='https://allam-taju.vercel.app/'
       />
 
-      <IndexNavbar />
+      {loading && <LoadingPage />}
+      <IndexNavbar transparent className={loading ? '' : 'fade-in-start'} />
       <div className='fixed bottom-0 right-0 z-[100] m-4 rounded-lg bg-yellow-500 p-2 text-sm font-semibold text-slate-100 shadow-md'>
         this page currently on development
       </div>
