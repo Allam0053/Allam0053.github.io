@@ -33,6 +33,7 @@ export default function Navbar({
           transparent ? 'bg-transparent backdrop-blur-lg' : 'bg-white',
           'dark:bg-slate-600',
           // fadeInStart ? 'fade-in-start' : '',
+          className ? '' : 'fade-in-start',
           className
         )}
         {...rest}

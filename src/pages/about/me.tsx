@@ -20,13 +20,7 @@ import { ExpFrontmatter } from '@/types/frontmatters';
 export default function Profile({ timelines, tags }: ProfileProps) {
   const [loading, setLoading] = React.useState(false);
   // const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  const Components = React.useMemo(
-    () =>
-      timelines
-        ? timelines.map((timeline) => getMDXComponent(timeline.code))
-        : [],
-    [timelines]
-  );
+
   const meta = useContentMeta('me', { runIncrement: true });
 
   //#region  //*=========== Tag ===========
@@ -62,6 +56,22 @@ export default function Profile({ timelines, tags }: ProfileProps) {
       search.toLowerCase().split(' ').includes(tag)
     );
   };
+
+  const Components = React.useMemo(
+    () =>
+      timelines
+        ? timelines
+            .filter((c) => {
+              const componentsTag = c.frontmatter.tags;
+              return search
+                .toLowerCase()
+                .split(' ')
+                .every((tag) => componentsTag.includes(tag));
+            })
+            .map((timeline) => getMDXComponent(timeline.code))
+        : [],
+    [search, timelines]
+  );
   //#endregion  //*======== Tag ===========
 
   const [toolTipShowed, setToolTipShowed] = React.useState(false);
@@ -299,10 +309,10 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                 className='flex w-full flex-col items-center px-4 py-8'
                 data-fade='7'
               >
-                <ol className='relative border-l border-gray-200 dark:border-gray-700'>
+                <ol className='relative w-full border-l border-gray-200 dark:border-gray-700'>
                   {Components &&
                     Components.map((Component, index) => (
-                      <li className='mb-10 ml-6' key={`tl-${index}`}>
+                      <li className='mb-10 ml-6 w-full' key={`tl-${index}`}>
                         <span
                           className={clsxm(
                             'absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full',
