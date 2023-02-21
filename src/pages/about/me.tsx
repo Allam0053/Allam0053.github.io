@@ -13,6 +13,7 @@ import Footer from '@/components/Footers/Footer';
 import LoadingPage from '@/components/layout/Loading';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
+import Seo from '@/components/Seo';
 import Tooltip from '@/components/Tooltip';
 
 import { ExpFrontmatter } from '@/types/frontmatters';
@@ -122,6 +123,12 @@ export default function Profile({ timelines, tags }: ProfileProps) {
 
   return (
     <>
+      <Seo
+        templateTitle='Allam Taju Sarof'
+        description='All about Allam Taju Sarof'
+        siteName='Allam Taju'
+        url='https://allam-taju.vercel.app/'
+      />
       {loading && <LoadingPage />}
       <IndexNavbar transparent className={loading ? '' : 'fade-in-start'} />
       <main className={clsxm('profile-page', !loading && 'fade-in-start')}>
