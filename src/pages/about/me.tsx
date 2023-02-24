@@ -124,10 +124,11 @@ export default function Profile({ timelines, tags }: ProfileProps) {
   return (
     <>
       <Seo
+        title='Allam Taju Sarof'
         templateTitle='Allam Taju Sarof'
         description='All about Allam Taju Sarof'
         siteName='Allam Taju'
-        url='https://allam-taju.vercel.app/'
+        url='https://allam-taju.vercel.app'
       />
       {loading && <LoadingPage />}
       <IndexNavbar transparent className={loading ? '' : 'fade-in-start'} />

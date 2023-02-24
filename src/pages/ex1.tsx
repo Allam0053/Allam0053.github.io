@@ -18,7 +18,7 @@ export default function Ex1() {
         templateTitle='Projects'
         description='Showcase of my projects on various tech.'
         siteName='Allam Taju'
-        url='https://allam-taju.vercel.app/'
+        url='https://allam-taju.vercel.app'
       />
       <IndexNavbar />
       <div className='flex h-screen w-screen flex-col justify-center'>

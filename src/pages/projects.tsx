@@ -19,7 +19,7 @@ export default function ProjectsPage({
         templateTitle='Projects'
         description='Showcase of my projects on various tech.'
         siteName='Allam Taju'
-        url='https://allam-taju.vercel.app/'
+        url='https://allam-taju.vercel.app'
       />
 
       <IndexNavbar />

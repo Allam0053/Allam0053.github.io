@@ -27,7 +27,7 @@ export default function HomePage() {
         title='Home | Allam Taju Sarof'
         siteName='Allam Taju'
         description='Personal website of Allam Taju'
-        url='https://allam-taju.vercel.app/'
+        url='https://allam-taju.vercel.app'
       />
 
       {loading && <LoadingPage />}

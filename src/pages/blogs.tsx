@@ -17,10 +17,10 @@ InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Seo
-        templateTitle='Projects'
-        description='Showcase of my projects on various tech.'
+        templateTitle='Blogs'
+        description={`My BLAZZINGLY FAST blog posts. I write about web development, tech, and other stuff. I also write about my journey as a developer and it's not always about professional development.`}
         siteName='Allam Taju'
-        url='https://allam-taju.vercel.app/'
+        url='https://allam-taju.vercel.app'
       />
 
       <IndexNavbar />
