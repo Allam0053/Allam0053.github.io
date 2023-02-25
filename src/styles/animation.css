@@ -24,10 +24,24 @@
 }
 
 [data-disappear] {
-  @apply translate-y-0 opacity-100 duration-[800ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+  @apply translate-y-0 opacity-100 duration-[1000ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
 }
 .disappear-start[data-disappear] {
   @apply translate-y-10 opacity-0 delay-1000;
+}
+
+[data-moveleft] {
+  @apply translate-x-12 opacity-0 duration-[1000ms] ease-out motion-reduce:translate-x-12 motion-reduce:opacity-0;
+}
+.moveleft-start[data-moveleft] {
+  @apply translate-x-0 opacity-100;
+}
+
+[data-moveup] {
+  @apply translate-y-12 opacity-0 duration-[800ms] ease-out motion-reduce:translate-y-12 motion-reduce:opacity-0;
+}
+.moveup-start[data-moveup] {
+  @apply translate-y-0 opacity-100;
 }
 
 [data-fade] {

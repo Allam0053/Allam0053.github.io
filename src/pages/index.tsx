@@ -75,10 +75,28 @@ export default function HomePage() {
               <div className='container relative mx-auto flex flex-wrap items-center'>
                 <div
                   className={clsxm(
-                    'w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12',
+                    'relative w-full px-4 md:w-8/12 lg:w-6/12 xl:w-6/12',
                     isMounted ? 'fade-in-start' : ''
                   )}
                 >
+                  <div
+                    className={clsxm(
+                      'absolute -top-4 -left-4 h-[2px] w-[80vw] md:w-[60vw]',
+                      'bg-[linear-gradient(90deg,rgb(56,189,248)_10%,rgb(129,140,248)_30%,rgb(249,115,22)_80%)]',
+                      '[mask-image:radial-gradient(80%_80%_at_left,white,transparent)]',
+                      isMounted && 'moveleft-start'
+                    )}
+                    data-moveleft
+                  />
+                  <div
+                    className={clsxm(
+                      'absolute -top-8 left-0 h-[100vh] w-[2px] md:h-[60vh]',
+                      'bg-[linear-gradient(0deg,rgb(249,115,22)_10%,rgb(129,140,248)_30%,rgb(56,189,248)_50%)]',
+                      '[mask-image:radial-gradient(80%_90%_at_top,white,transparent)]',
+                      isMounted && 'moveup-start'
+                    )}
+                    data-moveup
+                  />
                   <h2
                     className='text-4xl font-semibold text-slate-600'
                     data-fade='1'
@@ -221,15 +239,19 @@ function ProjectSection() {
                     className={clsxm(
                       'absolute top-0 -left-4 h-[2px] w-[80vw] md:w-[60vw]',
                       'bg-[linear-gradient(90deg,rgb(56,189,248)_10%,rgb(129,140,248)_30%,rgb(249,115,22)_80%)]',
-                      '[mask-image:radial-gradient(80%_80%_at_left,white,transparent)]'
+                      '[mask-image:radial-gradient(80%_80%_at_left,white,transparent)]',
+                      inView && 'moveleft-start'
                     )}
+                    data-moveleft
                   />
                   <div
                     className={clsxm(
                       'absolute -top-4 left-0 h-[200vh] w-[2px] md:h-[60vh]',
                       'bg-[linear-gradient(0deg,rgb(249,115,22)_10%,rgb(129,140,248)_30%,rgb(56,189,248)_50%)]',
-                      '[mask-image:radial-gradient(80%_90%_at_top,white,transparent)]'
+                      '[mask-image:radial-gradient(80%_90%_at_top,white,transparent)]',
+                      inView && 'moveup-start'
                     )}
+                    data-moveup
                   />
                   <div className='my-4 w-full px-4 lg:w-6/12'>
                     <Link href='/project'>
