@@ -130,7 +130,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
         siteName='Allam Taju'
         url='https://allam-taju.vercel.app'
       />
-      {loading && <LoadingPage />}
+      <LoadingPage isLoading={loading} />
       <IndexNavbar transparent className={loading ? '' : 'fade-in-start'} />
       <main className={clsxm('profile-page', !loading && 'fade-in-start')}>
         <section className='relative block h-500-px' data-fade='1'>

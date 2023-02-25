@@ -8,6 +8,10 @@ type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
 export default function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
+  React.useEffect(() => {
+    setTheme('light');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <button
       className={clsx(

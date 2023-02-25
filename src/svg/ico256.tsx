@@ -1,6 +1,16 @@
 import styles from '@/svg/ico.module.css';
 
-export default function Ico() {
+import clsxm from '@/lib/clsxm';
+
+type IcoProps = {
+  className?: string;
+  isDisableRotationAnimation?: boolean;
+};
+
+export default function Ico({
+  className,
+  isDisableRotationAnimation = false,
+}: IcoProps) {
   return (
     <svg
       width='256'
@@ -8,6 +18,7 @@ export default function Ico() {
       viewBox='0 0 256 256'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={clsxm(className)}
     >
       <g clipPath='url(#clip0_538_105)'>
         <mask
@@ -48,7 +59,7 @@ export default function Ico() {
         </mask>
         <g mask='url(#mask0_538_105)'>
           <rect
-            className={styles.rotate}
+            className={!isDisableRotationAnimation ? styles.rotate : ''}
             x={(256 - 400) / 2}
             y={(256 - 400) / 2}
             width='400'

@@ -1,4 +1,12 @@
-# Repo Config
+# Allam Taju Sarof
+
+Personal website.
+
+## TODO
+
+- add DIY react components
+
+## Repo Config
 
 hello, my beloved viewers. hope u got a nice day.
 
@@ -20,8 +28,6 @@ project
 
 - price shower for sidowaras
 - house price predict
-
-## todo
 
 ### refactor
 

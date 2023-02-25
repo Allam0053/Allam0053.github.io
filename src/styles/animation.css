@@ -23,6 +23,13 @@
   animation: slide-top 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
+[data-disappear] {
+  @apply translate-y-0 opacity-100 duration-[800ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+}
+.disappear-start[data-disappear] {
+  @apply translate-y-10 opacity-0 delay-1000;
+}
+
 [data-fade] {
   @apply translate-y-10 opacity-0 transition duration-[800ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
 }
@@ -52,4 +59,51 @@
 }
 .fade-in-start [data-fade='8'] {
   transition-delay: 1200ms;
+}
+.fade-in-start [data-fade='9'] {
+  transition-delay: 1250ms;
+}
+.fade-in-start [data-fade='10'] {
+  transition-delay: 1300ms;
+}
+
+.floating-animation {
+  animation-name: floating;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+.fade-out {
+  -webkit-animation: fade-out 0.5s ease-out both;
+  animation: fade-out 0.5s ease-out both;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

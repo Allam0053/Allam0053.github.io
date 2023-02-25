@@ -21,10 +21,12 @@ export default function Navbar({
   ...rest
 }: IndexNavbarProps) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
-  // const [fadeInStart, setFadeInStart] = React.useState(false);
-  // React.useEffect(() => {
-  //   setFadeInStart(true);
-  // }, []);
+  const [fadeInStart, setFadeInStart] = React.useState(false);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setFadeInStart(true);
+    }, 500);
+  }, []);
   return (
     <>
       <nav
@@ -32,8 +34,7 @@ export default function Navbar({
           'navbar-expand-lg fixed top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3 shadow',
           transparent ? 'bg-transparent backdrop-blur-lg' : 'bg-white',
           'dark:bg-slate-600',
-          // fadeInStart ? 'fade-in-start' : '',
-          className ? '' : 'fade-in-start',
+          fadeInStart ? 'fade-in-start' : '',
           className
         )}
         {...rest}
@@ -41,7 +42,7 @@ export default function Navbar({
         <div className='container mx-auto flex flex-wrap items-center justify-between px-4'>
           <div
             className='relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start'
-            data-fade='2'
+            data-fade='3'
           >
             <Link href='/'>
               <a className='mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-slate-700 dark:text-white'>
