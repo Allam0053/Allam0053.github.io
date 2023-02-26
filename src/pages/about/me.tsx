@@ -69,7 +69,12 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                 .split(' ')
                 .every((tag) => componentsTag.includes(tag));
             })
-            .map((timeline) => getMDXComponent(timeline.code))
+            .map((timeline) => {
+              return {
+                jsx: getMDXComponent(timeline.code),
+                frontmatter: timeline.frontmatter,
+              };
+            })
         : [],
     [search, timelines]
   );
@@ -345,11 +350,24 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                           </svg>
                         </span>
                         <div className='prose'>
-                          <Component
+                          <Component.jsx
                             key={index}
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             components={{ ...MDXComponents } as any}
                           />
+                        </div>
+                        <div className='mt-2 flex w-full flex-wrap justify-items-start gap-2'>
+                          {Component.frontmatter.tags.split(',').map((tag) => (
+                            <button
+                              type='button'
+                              className='mr-1 rounded bg-slate-200 py-1 px-2 text-xs font-semibold uppercase text-slate-600'
+                              key={tag}
+                              onClick={() => toggleTag(tag)}
+                              disabled={!filteredTags.includes(tag)}
+                            >
+                              {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
+                            </button>
+                          ))}
                         </div>
                       </li>
                     ))}

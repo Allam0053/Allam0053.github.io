@@ -23,8 +23,9 @@ export default async function handler(
   // const posts = sortByDate(files);
   // responseData.push(posts);
   for (const s of source) {
-    responseData.push(await getMDXComponent(s.code));
+    const mdxComponent = await getMDXComponent(s.code);
+    responseData.push(mdxComponent);
   }
-  res.status(200).json(responseData);
+  res.status(200).json(source);
   // res.status(200).json({ name: 'John Doe' });
 }

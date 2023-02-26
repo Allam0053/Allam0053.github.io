@@ -81,7 +81,7 @@ export default function HomePage() {
                 >
                   <div
                     className={clsxm(
-                      'absolute -top-4 -left-4 h-[2px] w-[80vw] md:w-[60vw]',
+                      'lg:[40vw] absolute -top-8 -left-8 h-[2px] w-[80vw] md:w-[60vw]',
                       'bg-[linear-gradient(90deg,rgb(56,189,248)_10%,rgb(129,140,248)_30%,rgb(249,115,22)_80%)]',
                       '[mask-image:radial-gradient(80%_80%_at_left,white,transparent)]',
                       isMounted && 'moveleft-start'
@@ -90,7 +90,7 @@ export default function HomePage() {
                   />
                   <div
                     className={clsxm(
-                      'absolute -top-8 left-0 h-[100vh] w-[2px] md:h-[60vh]',
+                      'absolute -top-12 -left-4 h-[80vh] w-[2px] md:h-[50vh]',
                       'bg-[linear-gradient(0deg,rgb(249,115,22)_10%,rgb(129,140,248)_30%,rgb(56,189,248)_50%)]',
                       '[mask-image:radial-gradient(80%_90%_at_top,white,transparent)]',
                       isMounted && 'moveup-start'
