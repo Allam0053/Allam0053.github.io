@@ -42,7 +42,7 @@ export default function HomePage() {
         this page currently on development
       </div>
 
-      <main className='w-screen overflow-x-hidden'>
+      <main className='flex w-screen flex-col overflow-x-hidden'>
         <section className='header relative mb-[60px] flex h-screen max-h-860-px w-full items-center pt-16'>
           <div className='isolate h-full w-full bg-white'>
             <div className='absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]'>
@@ -188,7 +188,7 @@ function ProjectSection() {
         <section
           ref={ref}
           className={clsxm(
-            'relative mt-48 pb-4 md:mt-40',
+            'relative mt-48 w-full pb-4 md:mt-40',
             inView && 'fade-in-start'
           )}
         >

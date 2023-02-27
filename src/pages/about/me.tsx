@@ -129,10 +129,9 @@ export default function Profile({ timelines, tags }: ProfileProps) {
   return (
     <>
       <Seo
-        title='Allam Taju Sarof'
-        templateTitle='Allam Taju Sarof'
-        description='All about Allam Taju Sarof'
+        title='About | Allam Taju Sarof'
         siteName='Allam Taju'
+        description='All about Allam Taju Sarof'
         url='https://allam-taju.vercel.app'
       />
       <LoadingPage isLoading={loading} />

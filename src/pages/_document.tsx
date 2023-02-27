@@ -25,7 +25,7 @@ class _Document extends Document {
           />
           <link rel='manifest' href='/manifest.json' />
         </Head>
-        <body>
+        <body className='w-screen' style={{ overflowX: 'hidden' }}>
           <Main />
           <NextScript />
         </body>
