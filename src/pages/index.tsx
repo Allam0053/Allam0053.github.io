@@ -12,7 +12,6 @@ import Layout from '@/components/layout/Layout';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import Seo from '@/components/Seo';
-import Tooltip from '@/components/Tooltip';
 
 import Ico256 from '@/svg/ico256';
 
@@ -464,16 +463,15 @@ function ReactComponentSection() {
                   Page Layout
                 </span>
               </div>
-              <Tooltip content={<p>Coming Soon...</p>}>
-                <UnstyledLink
-                  href='#'
-                  className='font-bold text-slate-700 transition-all duration-150 ease-linear hover:text-slate-500'
-                  data-fade='6'
-                >
-                  View All{' '}
-                  <i className='fa fa-angle-double-right ml-1 leading-relaxed'></i>
-                </UnstyledLink>
-              </Tooltip>
+
+              <UnstyledLink
+                href='/components'
+                className='font-bold text-slate-700 transition-all duration-150 ease-linear hover:text-slate-500'
+                data-fade='6'
+              >
+                View All{' '}
+                <i className='fa fa-angle-double-right ml-1 leading-relaxed'></i>
+              </UnstyledLink>
             </div>
 
             <div className='mr-auto ml-auto mt-32 w-full px-4 md:w-5/12'>

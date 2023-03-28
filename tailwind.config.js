@@ -129,6 +129,7 @@ module.exports = {
   ],
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
     plugin(function ({ addBase }) {
       addBase({
         html: { fontSize: '12px' },

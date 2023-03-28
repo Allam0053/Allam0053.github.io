@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import LineChart from '@/components/chart/line';
 // import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 // import Quiz from '@/components/content/blog/Quiz';
 // import GithubCard from '@/components/content/card/GithubCard';
@@ -25,6 +26,7 @@ const MDXComponents = {
   // TweetCard,
   // GithubCard,
   // Quiz,
+  LineChart,
 };
 
 export default MDXComponents;

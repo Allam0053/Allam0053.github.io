@@ -106,7 +106,7 @@ export default function SingleBlogPage({
           <div className='layout'>
             <div className='pb-4 dark:border-gray-600'>
               <CloudinaryImg
-                publicId={`allam-taju/banner/${frontmatter.banner}`}
+                publicId={`${frontmatter.banner}`}
                 alt={`Photo from unsplash: ${frontmatter.banner}`}
                 width={1200}
                 height={(1200 * 2) / 5}
@@ -186,7 +186,7 @@ export default function SingleBlogPage({
             <hr className='dark:border-gray-600' />
 
             <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx prose blog-prose dark:prose-invert mx-auto mt-4 w-full transition-colors'>
+              <article className='mdx blog-prose prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
                 <Component
                   components={
                     {
