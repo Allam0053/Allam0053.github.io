@@ -44,7 +44,7 @@ const IndexDropdown = () => {
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? 'block ' : 'hidden ') +
-          'z-50 float-left min-w-48 list-none rounded bg-white py-2 text-left text-base shadow-lg'
+          'z-[100] float-left min-w-48 list-none rounded bg-white py-2 text-left text-base shadow-lg'
         }
       >
         <span className='block w-full whitespace-nowrap bg-transparent px-4 pt-2 pb-0 text-sm font-bold text-slate-400'>

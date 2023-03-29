@@ -2,7 +2,6 @@
 // to customize the default configuration.
 
 /* eslint-disable @next/next/no-img-element */
-import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticProps } from 'next';
 import * as React from 'react';
 import { InView } from 'react-intersection-observer';
@@ -13,11 +12,11 @@ import usePagination, { PaginationNavigation } from '@/hooks/usePagination';
 
 import posts from '@/data/Posts';
 
-import MDXComponents from '@/components/content/MDXComponents';
 // import useIsMounted from '@/hooks/useIsMounted';
 import Footer from '@/components/Footers/Footer';
 import Layout from '@/components/layout/Layout';
 import IndexNavbar from '@/components/Navbars/IndexNavbar';
+import MarkdownComponent from '@/components/sections/MarkdownComponent';
 import Seo from '@/components/Seo';
 
 import { ProjectFrontmatter } from '@/types/frontmatters';
@@ -57,7 +56,7 @@ export function PaginationComponent() {
         <section
           ref={ref}
           className={clsxm(
-            'relative mt-10 flex w-full flex-col items-center pt-16 pb-32 md:mt-10',
+            'relative mt-10 flex w-full flex-col items-center pt-8 pb-8 md:mt-10',
             inView && 'fade-in-start'
           )}
         >
@@ -87,40 +86,6 @@ export function PaginationComponent() {
                 setCurrentPage={setCurrentPage}
               />
             </div>
-          </div>
-        </section>
-      )}
-    </InView>
-  );
-}
-
-export function MarkdownComponent({
-  code,
-}: // frontmatter,
-{
-  code: string;
-  // frontmatter: ProjectFrontmatter;
-}) {
-  const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  return (
-    <InView triggerOnce rootMargin='-40% 0px'>
-      {({ ref, inView }) => (
-        <section
-          ref={ref}
-          className={clsxm(
-            'relative mt-10 flex w-full flex-col items-center pt-16 pb-4 md:mt-10',
-            inView && 'fade-in-start'
-          )}
-        >
-          <div className='prose'>
-            <Component
-              components={
-                {
-                  ...MDXComponents,
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                } as any
-              }
-            />
           </div>
         </section>
       )}

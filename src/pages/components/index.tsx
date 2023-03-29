@@ -46,12 +46,12 @@ export function LineChartComponent() {
       {({ ref, inView }) => (
         <section
           className={clsxm(
-            'relative bg-slate-100 pb-40',
+            'relative bg-slate-100 pb-12',
             inView && 'fade-in-start'
           )}
           ref={ref}
         >
-          <div className='container mx-auto px-4 pb-32 pt-48'>
+          <div className='container mx-auto px-4 pb-16 pt-24 xl:pt-48'>
             <div className='flex flex-wrap items-center'>
               <div className='ml-auto w-full px-12 md:w-5/12 md:px-4'>
                 <div className='md:pr-12'>
@@ -176,7 +176,7 @@ export function PaginationComponent() {
           )}
           ref={ref}
         >
-          <div className='container mx-auto px-4 pb-32 pt-48'>
+          <div className='container mx-auto px-4 pb-32 pt-24'>
             <div className='flex flex-wrap items-center'>
               <div className='ml-auto w-full px-12 md:w-5/12 md:px-4'>
                 <div className='md:pr-12'>
@@ -184,7 +184,7 @@ export function PaginationComponent() {
                     className='mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center text-slate-500 shadow-lg'
                     data-fade='1'
                   >
-                    <i className='fas fa-cabinet-filing text-xl'></i>
+                    <i className='fas fa-folder text-xl'></i>
                   </div>
                   <h3 className='text-3xl font-semibold' data-fade='2'>
                     Pagination
@@ -194,7 +194,7 @@ export function PaginationComponent() {
                     data-fade='3'
                   >
                     Pagination implementation. Limit rendered data can&apos;t be
-                    more simple that paginating.
+                    more simple than paginating.
                   </p>
                   <UnstyledLink
                     href='/components/pagination'

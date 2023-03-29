@@ -76,7 +76,7 @@ export default function Navbar({
               </li>
             </ul>
             <ul className='flex list-none flex-col lg:ml-auto lg:flex-row'>
-              <li className='flex items-center' data-fade='5'>
+              <li className='z-[100] flex items-center' data-fade='5'>
                 <IndexDropdown />
               </li>
               <li className='flex items-center' data-fade='6'>
