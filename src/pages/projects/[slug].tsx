@@ -181,7 +181,7 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                       </div>
                     </aside>
 
-                    <article className='mdx prose blog-prose col-span-3 px-4'>
+                    <article className='mdx blog-prose prose col-span-3 px-4'>
                       <Component
                         components={
                           {

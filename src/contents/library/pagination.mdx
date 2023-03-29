@@ -1,0 +1,76 @@
+---
+title: 'PAGINATION'
+description: 'Pagination for Data with Array Type'
+category: 'data-components'
+publishedAt: '2023-03-30'
+techs: 'reactjs,hooks'
+banner: 'line-chart_a5hysg.png'
+github: 'https://github.com/Allam0053/Allam0053.github.io/tree/main/src/hooks/usePagination.tsx'
+link: 'https://github.com/Allam0053/Allam0053.github.io/tree/main/src/hooks/usePagination.tsx'
+---
+
+# Pagination
+
+In this component there are 3 main concept:
+
+- usePagination hooks
+- Rendered Data
+- Pagination Navigation
+
+## usePagination
+
+I passed the data to the usePagination by calling it like this:
+
+```tsx
+const { pagination, currentPage, setCurrentPage } = usePagination(posts);
+```
+
+> NOTE: my beloved fellows can see posts example here, [Github](https://github.com/Allam0053/Allam0053.github.io/blob/main/src/data/Posts.ts)
+
+params:
+
+- `deps`: Array\<T\>
+- `dataCountPerPage`: number
+
+## Rendered Data
+
+the current data of active page can be accessed in
+
+```tsx
+const { pagination, currentPage, setCurrentPage } = usePagination(posts);
+pagination.currentData; // show list of current data
+```
+
+here is an example how to render it
+
+```tsx
+<div className='prose flex w-full flex-col gap-4 p-4'>
+  {pagination.currentData &&
+    pagination.currentData.map((postItem, postIndex) => (
+      <div
+        className='w-full rounded-lg bg-white p-4 shadow-md'
+        key={`${postIndex}-${postItem.id}`}
+      >
+        <div className='grid w-full grid-cols-2'>
+          <h6 className='font-semibold'>{postItem.title}</h6>
+          <p className='text-end text-xs'>{postItem.userId}</p>
+        </div>
+        <p>{postItem.body}</p>
+      </div>
+    ))}
+</div>
+```
+
+## Pagination Navigation
+
+The navigation actually really simple. We can iterate from -2 to +2 from the current page and show these pages as options and add an arrow button to step back or step forward
+
+```tsx
+<PaginationNavigation
+  pagination={pagination}
+  currentPage={currentPage}
+  setCurrentPage={setCurrentPage}
+/>
+```
+
+In this component I created a navigation that accept all the usePagination returned value. Maybe next time I will create a context provider so the usePagination values does not need to be passed to the pagination navigation.
