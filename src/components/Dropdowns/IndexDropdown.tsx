@@ -4,6 +4,7 @@ import React from 'react';
 import clsxm from '@/lib/clsxm';
 
 import UnstyledLink from '@/components/links/UnstyledLink';
+import { Sparkles } from 'lucide-react';
 
 const IndexDropdown = () => {
   // dropdown props
@@ -80,9 +81,9 @@ const IndexDropdown = () => {
         </UnstyledLink>
         <UnstyledLink
           href='/about/me'
-          className='block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
+          className='flex justify-between w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-slate-700'
         >
-          Allam
+          <span>Allam</span> <Sparkles className="text-slate-700 h-4" />
         </UnstyledLink>
       </div>
     </>

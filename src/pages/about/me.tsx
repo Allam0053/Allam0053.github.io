@@ -272,26 +272,26 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                     className='text-slate-400 hover:text-slate-500'
                   >
                     <i className='fas fa-map-marker-alt mr-2 text-lg'></i>{' '}
-                    Blitar, East Java
+                    Jakarta Selatan, DKI Jakarta
                   </UnstyledLink>
                 </div>
                 <div className='mb-2 mt-10 text-slate-600'>
                   <i className='fas fa-briefcase mr-2 text-lg text-slate-400'></i>
-                  Student - Informatics Engineering (2019 - current)
+                  Software Engineer - Samsung R&D Indonesia (2024 - current)
                 </div>
                 <div className='mb-2 text-slate-600'>
                   <i className='fas fa-university mr-2 text-lg text-slate-400'></i>
-                  Institut Teknologi Sepuluh Nopember
+                  Institut Teknologi Sepuluh Nopember - Informatics Engineering - 2019 - 2023
                 </div>
               </div>
               <div className='mt-10 border-t border-slate-200 py-10 text-center'>
                 <div className='flex flex-wrap justify-center'>
                   <div className='w-full px-4 lg:w-9/12'>
                     <p className='mb-4 text-sm leading-relaxed text-slate-700 md:text-lg'>
-                      {`Hello, I'm Allam. I'm a student of Informatics Engineering at ITS. I have so much interest in tech and I really like building apps. Currently, I have been creating web apps and mobile apps. I have been programming in PHP for about a year. I really enjoy learning many things such as routing, handling data, and many more in laravel. Now I am interested in javascript. I think this language is greatly popular so I had to learn it. It is a beautiful language with high versatility I think. The syntax is quite tricky and that's what makes it fascinating.`}
+                      {`Hello, I'm Allam. I'm a Software Engineer with a passion for building robust web applications and developer tools. Currently, I am a Software Engineer at Samsung Research Indonesia, where I maintain core UI libraries used globally, build complex Web Component libraries, and develop AI-powered developer tools like chatbot assistants with RAG pipelines. Previously, I worked as a Full Stack Developer at EQUNIX Business Solution (building POS and ERP solutions with Angular, Svelte, and Go) and as a Frontend Developer at HAVEDEV. With extensive experience in modern frontend frameworks (React, Next.js, Svelte, Angular), Web Components (Lit), and backend integration (Go, FastAPI, PHP), I love solving complex technical challenges and optimizing developer experiences.`}
                     </p>
                     <p className='text-sm font-semibold text-slate-400'>
-                      Edited in 2021
+                      Edited in 2026
                     </p>
                   </div>
                 </div>
