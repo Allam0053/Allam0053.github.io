@@ -121,7 +121,7 @@ export default function HomePage() {
                     </UnstyledLink>
                     <UnstyledLink
                       openNewTab
-                      href='./pdf/Allam-Taju-Sarof_CV_20260624.pdf'
+                      href='./Allam-Taju-Sarof_CV_20260624.pdf'
                       className='mx-2 border-0 border-slate-600 px-2 text-sm font-semibold text-slate-500 hover:border-b-2 hover:text-slate-600 active:border-b-2 active:text-slate-700'
                       data-fade='5'
                     >
