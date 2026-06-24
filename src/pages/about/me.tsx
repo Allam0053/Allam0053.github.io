@@ -126,6 +126,36 @@ export default function Profile({ timelines, tags }: ProfileProps) {
     setToolTipShowed(true);
   }, [loading, toolTipShowed, triggerMouseEnterToolTip]);
 
+  React.useEffect(() => {
+    const STORAGE_KEY = 'last_visit_timestamp';
+    const FIVE_MINUTES = 5 * 60 * 1000; // 1 hour in milliseconds
+    const now = Date.now();
+    
+    const lastVisit = localStorage.getItem(STORAGE_KEY);
+
+    // If the user visited within the last hour, don't increment the counter
+    if (lastVisit && now - parseInt(lastVisit, 10) < FIVE_MINUTES) {
+      return;
+    }
+
+    // Update the timestamp in localStorage immediately to throttle fast subsequent reloads
+    localStorage.setItem(STORAGE_KEY, now.toString());
+
+    // Fire-and-forget hit counter trigger
+    fetch('/api/hit', { method: 'POST' }).catch((err) =>
+      console.error('Failed to log visit:', err)
+    );
+  }, []);
+
+  const [visCount, setVisCount] = React.useState(0);
+
+  React.useEffect(() => {
+    fetch('/api/get-count')
+      .then(res => res.json())
+      .then(data => setVisCount(data.count))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <>
       <Seo
@@ -173,7 +203,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
         <section className='relative bg-slate-200 py-16'>
           <div className='container mx-auto px-4'>
             <div className='relative mb-6 -mt-64 flex w-full min-w-0 flex-col break-words rounded-lg bg-white px-6 shadow-xl'>
-              <div className='flex flex-wrap justify-center'>
+              <div className='flex flex-wrap justify-center sm:justify-between lg:justify-center'>
                 <div
                   className='flex w-full justify-center px-4 lg:order-2 lg:w-3/12'
                   data-fade='2'
@@ -186,8 +216,8 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                     />
                   </div>
                 </div>
-                <div className='w-full px-4 lg:order-3 lg:w-4/12 lg:self-center lg:text-right'>
-                  <div className='mt-32 py-6 px-3 sm:mt-0'>
+                <div className='w-3/4 px-4 sm:w-4/12 lg:order-3 lg:w-4/12 lg:self-center lg:text-right'>
+                  <div className='mt-32 pt-6 px-3 sm:mt-0'>
                     <Tooltip content={<p>My Newest Experiences Update</p>}>
                       <UnstyledLink
                         href='https://drive.google.com/file/d/1B-rjYu7hvr7efGAfmVsYM7yfhQsPx9Jh/view?usp=sharing'
@@ -238,11 +268,11 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                     </Tooltip>
                   </div>
                 </div>
-                <div className='w-full px-4 lg:order-1 lg:w-4/12'>
-                  <div className='flex justify-center py-4 pt-8 lg:pt-4'>
+                <div className='w-1/4 px-4 sm:w-4/12 lg:order-1 lg:w-4/12'>
+                  <div className='flex mt-32 sm:mt-0 justify-center pt-4'>
                     <div className='mr-4 p-3 text-center'>
                       <span className='block text-xl font-bold uppercase tracking-wide text-slate-600'>
-                        {meta?.views?.toLocaleString() ?? '–––'}
+                        {visCount?.toLocaleString() ?? '–––'}
                       </span>
                       <span className='text-sm text-slate-400'>Visit</span>
                     </div>
@@ -261,7 +291,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                   </div>
                 </div>
               </div>
-              <div className='mt-12 text-center'>
+              <div className='mt-6 lg:mt-12 text-center'>
                 <h3 className='mb-2 text-4xl font-semibold leading-normal text-slate-700'>
                   Allam Taju Sarof
                 </h3>
@@ -275,7 +305,7 @@ export default function Profile({ timelines, tags }: ProfileProps) {
                     Jakarta Selatan, DKI Jakarta
                   </UnstyledLink>
                 </div>
-                <div className='mb-2 mt-10 text-slate-600'>
+                <div className='mb-2 mt-6 text-slate-600'>
                   <i className='fas fa-briefcase mr-2 text-lg text-slate-400'></i>
                   Software Engineer - Samsung R&D Indonesia (2024 - current)
                 </div>

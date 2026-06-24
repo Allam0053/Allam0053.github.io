@@ -6,6 +6,8 @@ import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import useIsLandscape from '@/hooks/useIsLandscape';
+import { useEffect } from 'react';
 
 /**
  * !STARTERCONF info
@@ -13,7 +15,20 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
  */
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // useVisit();
+  const isLandscape = useIsLandscape();
+
+  useEffect(() => {
+    if (!document) {
+      return;
+    }
+
+    if (document && isLandscape) {
+      document.documentElement.setAttribute('data-orientation', 'landscape');
+    } else {
+      document.documentElement.setAttribute('data-orientation', 'portrait');
+    }
+  }, [isLandscape]);
+
   return (
     <ThemeProvider
       attribute='class'
